@@ -1,0 +1,17 @@
+input.form-control {
+  height: 45px;
+  margin: 20px 0 20px 4%;
+  width: 92%;
+}
+
+button.btn-block {
+  width: 70%;
+  margin-left: 15%;
+}
+
+p {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+

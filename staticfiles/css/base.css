@@ -1,0 +1,15 @@
+* {
+   font-family: "Microsoft YaHei";
+   font-size: 16px;
+}
+
+body {
+  background-color: #F3F3F3;
+}
+
+div.container {
+  background-color: #F3F3F3;
+  max-height: 562px;
+  max-width: 328px;
+}
+
