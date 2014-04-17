@@ -10,8 +10,21 @@ button.btn-block {
 }
 
 p {
-  font-size: 12px;
   text-align: center;
   margin-top: 20px;
+}
+
+p.title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p.auth {
+  font-size: 12px;
+}
+
+p.info {
+  font-size: 16px;
 }
 

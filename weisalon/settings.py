@@ -55,8 +55,11 @@ WSGI_APPLICATION = 'weisalon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'USER': 'test',
+        'PASSWORD': 'test_password',
+        'HOST': '166.111.71.207'
     }
 }
 
@@ -85,4 +88,9 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+
+# login
+AUTHENTICATION_BACKENDS = (
+    'wechat_web.login.LoginBackend',
+)
 
