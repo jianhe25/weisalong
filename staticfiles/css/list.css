@@ -1,62 +1,113 @@
-.event {
-      margin-top: 4.5px;            
-      background: -webkit-linear-gradient(#FFF, #E9F1F5, #FBFCFE); /* For Safari 5.1 to 6.0 */
-      min-height: 80px;
-      height:auto;
- }
- .event-title {
-      font-size: 20pt;
- }
- .event-detail {
-      font-color: #B2B2B2;
- }
- .round-box {
-      background-color:#666666; 
-      height:55px; 
-      width:74px;                 
-      margin-top:16px; 
-      border-radius:5px
- }
- .round-box.left {
-      float: left; 
-      margin-left: 10px; 
- }
- .round-box.right {
-      float: right;
-      margin-right: 10px;
- }
- .box-header {
-      text-align:center; 
-      background-color:#262524; 
-      color:#fff; 
-      font-size:43px;
-      height: 86px;
-      line-height: 86px;
- }
- .my-nav-bar > li{
-      width: 300px;
- }
- .nav-div {
-    width: 50%; 
-    height: 58px;
-    text-align: center; 
-    border-radius: 5px;   
-    font-size: 20px; 
-    line-height: 60px;
-    background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
- }
- .active {
-    color: #fff;
-    background: -webkit-linear-gradient(#E9009A, #AE0098);
- }    
+ .event {
+          margin-top: 3px;            
+          background: -webkit-linear-gradient(#FFF, #E9F1F5, #FBFCFE); /* For Safari 5.1 to 6.0 */
+          padding-top: 2px;
+          padding-bottom: 5px;  
+                  
+       }
+       .row.event {
+          padding-left: 15px;
+          padding-right: 15px;
+       }
+       .event-title {            
+          max-height: 43px;      
+          overflow: hidden;
+       }
+       .event-detail {
+          color: #B2B2B2;
+          font-size: 10px;
+       }
+       .event-detail > img {
+          width: 15px;
+          height: 15px;
+       }
+       .round-box {
+            background-color:#666666; 
+            height:55px; 
+            width:74px;                 
+            margin-top:16px; 
+            border-radius:5px
+       }
+       .round-box.left {
+            float: left; 
+            margin-left: 10px; 
+       }
+       .round-box.right {
+            float: right;
+            margin-right: 10px;
+       }
+       .box-header {
+            text-align:center; 
+            background-color:#262524; 
+            color:#fff; 
+            font-size:43px;
+            height: 86px;
+            line-height: 86px;
+       }       
+       .nav-div {
+          width: 50%; 
+          height: 30px;
+          text-align: center; 
+          border-radius: 5px;   
+          font-size: 14px; 
+          line-height: 30px;
+          background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
+       }
+       .active {
+          color: #fff;
+          background: -webkit-linear-gradient(#E9009A, #AE0098);
+       }    
 
- .my-nav-bar {
-    margin-top: 4.5px;
- }
+       .my-nav-bar {
+          margin-top: 4.5px;
+       }
 
- .my-button {
-    min-width: 48%;
- }
- .non-active {
-    background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
- }
+       .my-button {
+          min-width: 48%;
+       }
+       .non-active {
+          background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
+       }
+       .padding-left {
+
+       }
+       .modal-row {          
+          border-bottom: 1px solid #CCCCCC;
+          padding-bottom: 5px;
+          padding-top: 5px;
+       }
+       span { display:inline-block; vertical-align:middle }
+              
+       .modal-row-detail {
+          color: #666666;
+          font-size: 13px;
+          margin-left: 32px;
+       }
+
+       .modal-content {
+          background-color: #F3F3F3;
+       }
+       .modal-body {
+          padding-top: 0px;
+       }
+       .modal-row-title {
+          margin-left: 10px;
+       }
+       .button-single {
+          margin-left: 5%;
+          width: 90%;
+          margin-top: 20px;          
+       }
+       .my-num-circle {
+          height: 25px;
+          width: 25px;
+       }
+
+       .event > .left-column {
+          float: left;
+          max-width: 85%;
+       }
+
+       .event > .right-column {
+          float: right;          
+       }

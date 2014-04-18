@@ -1,20 +1,14 @@
 * {
    font-family: "Microsoft YaHei";
-   font-size: 16px;
+   font-size: 15px;
 }
 
 div.container {
-  padding-top: 10px;
+  padding-top: 0px;
   padding-bottom: 10px;
   background-color: #f3f3f3;
   max-height: 680px;
   max-width: 408px;
-}
-
-div.container {
-  background-color: #F3F3F3;
-  max-height: 1008px;
-  max-width: 640px;  
 }
 
 img.small {
@@ -64,7 +58,6 @@ img.small {
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
->>>>>>> 452361910872bf8f57ea9afa3ad93e44e5d43309
 }
 
 div.row {

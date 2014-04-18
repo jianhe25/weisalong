@@ -20,104 +20,7 @@
       );
     </script>
     <link href="/static/css/base.css" rel="stylesheet">
-    <!-- <link href="/static/css/list.css" rel="stylesheet"> -->
-    <style>
-       .event {
-          margin-top: 5px;            
-          background: -webkit-linear-gradient(#FFF, #E9F1F5, #FBFCFE); /* For Safari 5.1 to 6.0 */
-          
-          padding-top: 5px;
-          padding-bottom: 8px;
-       }
-       .event-title {  
-          max-height: 45px;      
-          overflow: hidden;
-       }
-       .event-detail {
-            color: #B2B2B2;
-            font-size: 10px;
-       }
-       .round-box {
-            background-color:#666666; 
-            height:55px; 
-            width:74px;                 
-            margin-top:16px; 
-            border-radius:5px
-       }
-       .round-box.left {
-            float: left; 
-            margin-left: 10px; 
-       }
-       .round-box.right {
-            float: right;
-            margin-right: 10px;
-       }
-       .box-header {
-            text-align:center; 
-            background-color:#262524; 
-            color:#fff; 
-            font-size:43px;
-            height: 86px;
-            line-height: 86px;
-       }
-       .my-nav-bar > li{
-            width: 300px;
-       }
-       .nav-div {
-          width: 50%; 
-          height: 50px;
-          text-align: center; 
-          border-radius: 5px;   
-          font-size: 20px; 
-          line-height: 50px;
-          background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
-       }
-       .active {
-          color: #fff;
-          background: -webkit-linear-gradient(#E9009A, #AE0098);
-       }    
-
-       .my-nav-bar {
-          margin-top: 4.5px;
-       }
-
-       .my-button {
-          min-width: 48%;
-       }
-       .non-active {
-          background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
-       }
-       .padding-left {
-
-       }
-       .modal-row {          
-          border-bottom: 1px solid #CCCCCC;
-          padding-bottom: 5px;
-          padding-top: 5px;
-       }
-       span { display:inline-block; vertical-align:middle }
-              
-       .modal-row-detail {
-          color: #666666;
-          font-size: 13px;
-          margin-left: 32px;
-       }
-
-       .modal-content {
-          background-color: #F3F3F3;
-       }
-       .modal-body {
-          padding-top: 0px;
-       }
-       .modal-row-title {
-          margin-left: 10px;
-       }
-       .button-single {
-          margin-left: 5%;
-          width: 90%;
-          margin-top: 20px;          
-       }
-    </style>
+    <link href="/static/css/list.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -136,77 +39,155 @@
           </div>
       </div>      
 
-    <div class="row event">
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10 event-title">                
-                量子力学带来的设计思维的革命
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" >
-                <img src="/static/img/num_circle.jpg" width="28" height="28"/>
-            </div>
-        </div>
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10"> 
-                <span class="event-detail">
-                  <img src="/static/img/human.jpg"/> 
-                  何剑
-                </span>
-                <span class="event-detail" >
-                  <img src="/static/img/clock.jpg"/>
-                  4月11日 18:30 - 20:30 星期三
-                </span>
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2"><span class="event-detail">2/10</span></div>
-        </div>
-    </div>    
     
     <div class="row event">
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10 event-title">                
-                关于高雅艺术进校园的一些思考和如何在校园课余生活中提高自己的艺术修养
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2">
-                <img src="/static/img/num_circle.jpg" width="28" height="28"/>
-            </div>
+      <div class="left-column" >         
+        <div class="event-title">    
+          量子力学带来设计思维的革命性变革
         </div>
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10"> 
-                <span class="event-detail">
-                  <img src="/static/img/human.jpg"/> 
-                  何剑
-                </span>
-                <span class="event-detail" >
-                  <img src="/static/img/clock.jpg"/>
-                  4月11日 18:30 - 20:30 星期三
-                </span>
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2"><span class="event-detail">2/10</span></div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
         </div>
-    </div>    
-
-    <div class="row event">
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10 event-title">                
-                量子力学带来的设计思维的革命性变革
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" >
-                <img src="/static/img/num_circle.jpg" width="28" height="28"/>
-            </div>
-        </div>
-        <div class="row" >
-            <div class="col-xs-10 col-sm-10 col-md-10"> 
-                <span class="event-detail">
-                  <img src="/static/img/human.jpg"/> 
-                  何剑
-                </span>
-                <span class="event-detail " >
-                  <img src="/static/img/clock.jpg"/>
-                  4月11日 18:30 - 20:30 星期三
-                </span>
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2"><span class="event-detail">2/10</span></div>
-        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
     </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          量子力学带来设计思维的革命性变革
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          关于高雅艺术进校园的一些思考和如何在校园课余生活中提高自己的艺术修养
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          量子力学带来的设计思维革命性变革
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          关于高雅艺术进校园的一些思考和如何在校园课余生活中提高自己的艺术修养
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          量子力学带来的设计思维革命性变革
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    <div class="row event">
+      <div class="left-column" >         
+        <div class="event-title">    
+          关于高雅艺术进校园的一些思考和如何在校园课余生活中提高自己的艺术修养
+        </div>
+        <div>
+          <span class="event-detail">
+            <img src="/static/img/human.jpg"/> 
+            何剑
+          </span>
+          <span class="event-detail" >
+            <img src="/static/img/clock.jpg"/>
+            4月11日 18:30 - 20:30 星期三
+          </span>
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/static/img/num_circle.jpg" class="my-num-circle"/>
+          <div class="event-detail">2/10</div>
+      </div>
+    </div>  
+    
         <!-- Button trigger modal -->
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
       Launch demo modal
@@ -217,7 +198,8 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" height="20"
+            width="20">&times;</button>
             <div class="row modal-row">
               <h4 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h4>          
             </div>
@@ -249,6 +231,7 @@
               <div class="modal-row-title" style="display:inline">
                 人数: 3/9 
                 <span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏 已报名</span>
+
               </div>            
             </div>
             <div class="row modal-row">                            
