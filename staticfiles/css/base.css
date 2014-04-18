@@ -9,7 +9,11 @@ body {
 
 div.container {
   background-color: #F3F3F3;
-  max-height: 562px;
-  max-width: 328px;
+  max-height: 1008px;
+  max-width: 640px;  
 }
 
+div.row {
+    padding-left: 5px;
+    padding-right: 5px;
+}
