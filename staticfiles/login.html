@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container container-padding-both">
     <form action="" method="post" class="form" role="form">
       <div class="center-80">
         <img class="img-responsive" src="/static/img/all.png"></img>
@@ -38,7 +38,7 @@
       <p class="text-muted text-center font-small">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <!-- login success -->
-      <div id="success" class="modal fade hide" aria-hidden="true">
+      <div id="success" class="modal fade" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body">
@@ -58,7 +58,7 @@
       <!-- </script> -->
 
       <!-- login fail -->
-      <div id="fail" class="modal fade hide" aria-hidden="true">
+      <div id="fail" class="modal fade" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body">
@@ -74,7 +74,7 @@
       <!-- <script> -->
       <!--   $('#fail').modal(); -->
       <!--   setTimeout(function() { -->
-      <!--       $('#fail').modal('hide') -->
+      <!--       $('#fail').modal('hide'); -->
       <!--   }, 3000); -->
       <!-- </script> -->
 
@@ -83,8 +83,6 @@
       </div>
     </form>
   </div>
-</div>
-
 </body>
 </html>
 
