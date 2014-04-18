@@ -2,7 +2,6 @@ from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate
 
-# Create your views here.
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html', {
@@ -27,4 +26,8 @@ def login(request):
         })
     else:
         raise Http404
+
+def profile(request):
+    return render(request, 'profile.html', {
+    })
 

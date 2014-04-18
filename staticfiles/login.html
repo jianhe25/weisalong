@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>首次认证</title>
+  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
+  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
+  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <link href="/static/css/base.css" rel="stylesheet">
+
+  <style>
+    .form-control {
+      height: 45px;
+      margin-top: 20px;
+      margin-bottom: 20px
+    }
+
+    p {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="" method="post" class="form" role="form">
+      <div class="center-80">
+        <img class="img-responsive" src="/static/img/all.png"></img>
+      </div>
+
+      <p class="form-signin-heading">微沙龙认证</p>
+      <input type="text" name="username" class="form-control center-90" placeholder="Info学号" required></input>
+      <input type="password" name="password" class="form-control center-90" placeholder="Info密码" required></input>
+      <input type="phone" name="phone" class="form-control center-90" placeholder="手机号" required></input>
+      <button class="btn btn-lg btn-primary btn-block center-70" type="submit">提&nbsp;&nbsp;交</button>
+      <p class="text-muted text-center font-small">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
+
+      <!-- login success -->
+      <div id="success" class="modal fade hide" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-body">
+              <img src="/static/img/succ.png" class="center-60">
+              <p class="text-center">认证成功！</p>
+              <p class="text-center">您可以
+              <a class="text-primary" href="#">参加沙龙</a>
+              或
+              <a class="text-primary" href="#">发起沙龙</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <script> -->
+      <!--   $('#success').modal({'backdrop': 'static'}); -->
+      <!-- </script> -->
+
+      <!-- login fail -->
+      <div id="fail" class="modal fade hide" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-body">
+              <img src="/static/img/fail.png" class="center-60">
+              <p class="text-danger text-center">认证失败</p>
+              <p class="text-muted text-center">
+              您需要核对信息后再次提交
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <script> -->
+      <!--   $('#fail').modal(); -->
+      <!--   setTimeout(function() { -->
+      <!--       $('#fail').modal('hide') -->
+      <!--   }, 3000); -->
+      <!-- </script> -->
+
+      <div class="center-60">
+        <img class="img-responsive" src="/static/img/tsinghua.png"></img>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
+
