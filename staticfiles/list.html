@@ -204,39 +204,40 @@
               <h4 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h4>          
             </div>
             <div class="row modal-row">
-                <img src="/static/img/modal-icons-id.png" width="18" height="18">
-                <span class="modal-row-title"> 编号: 097  </span>              
+                <img src="/static/img/modal-icons-id.png" class="icon">
+                <span class="modal-row-title"> 编号: 097  </span> 
+                <button class="btn btn-default button-normal" style="margin-left: 3%;"> 分享给好友/朋友圈 </button>             
             </div>
             <div class="row modal-row">
-              <img src="/static/img/modal-icons-clock.png" width="18" height="18"> 
+              <img src="/static/img/modal-icons-clock.png" class="icon"> 
                 <span class="modal-row-title"> 4月11日 18:30 - 20:30 </span>
             </div>
             <div class="row modal-row">              
               <div> 
-                <img src="/static/img/modal-icons-geo.png" width="18" height="18"> 
+                <img src="/static/img/modal-icons-geo.png" class="icon"> 
                 <span class="modal-row-title"> 荷塘月色咖啡厅 </span>
               </div>
               <div class="modal-row-detail"> 清华大学东门外 荷塘路8号楼 近春园岛上 轩榭亭东首 </div>
             </div>
             <div class="row modal-row">
               <div> 
-                <img src="/static/img/modal-icons-human.png" width="18" height="18"> 
+                <img src="/static/img/modal-icons-human.png" class="icon"> 
                 <span class="modal-row-title"> 发起人: 何剑 </span>
               </div>              
               <div class="modal-row-detail">美术学院视觉传达设计系</div>
-              <div class="modal-row-detail" style="color: #A9A9A9">报名后显示发起人手机</div>            
+              <div class="modal-row-detail font-light">报名后显示发起人手机</div>            
             </div>
             <div class="row modal-row">                            
-              <img src="/static/img/modal-icons-num.png" width="18" height="18"> 
+              <img src="/static/img/modal-icons-num.png" class="icon"> 
               <div class="modal-row-title" style="display:inline">
                 人数: 3/9 
                 <span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏 已报名</span>
-
+                <img src="/static/img/modal-icons-more.png" width="18" height="13">
               </div>            
             </div>
             <div class="row modal-row">                            
               <div>
-                <img src="/static/img/modal-icons-desc.png" width="18" height="13px"> 
+                <img src="/static/img/modal-icons-desc.png" width="18" height="13"> 
                 <span class="modal-row-title">
                   活动简介:                
                 </span>
@@ -246,8 +247,18 @@
               </div>                            
             </div>
             <div class="last-line">
-              <button type="button" class="btn btn-primary button-single">我要参加</button>
+              <div id="modal-join" class="hidden">
+                <button type="button" class="btn btn-primary button-single">我要参加</button>
+              </div>
+              <!-- Can switch two class by toggleClass(hidden) -->
+              <div id="modal-join-success">
+                <div class="modal-tips font-tiny text-center font-light"> 活动开始前15分钟返回此页面可以领取咖啡券二维码
+                </div>
+                <button type="button" class="btn btn-primary button-half" style="margin-left: 4%">已经发布成功</button>
+                <button type="button" class="btn btn-default button-half button-normal" style="margin-left: 1%;" data-dismiss="modal">取消活动</button>
+              </div>
             </div>
+
           </div>                         
         </div>
       </div>
