@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>有效微沙龙</title>
+  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
+  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
+  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <link href="/static/css/base.css" rel="stylesheet">
+
+  <style>
+    div {
+      font-size: 14px;
+    }
+
+    span {
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    div.border-right {
+      border-right: 1px solid #ccc;
+    }
+
+    div.detail {
+      background-color: #eee;
+      padding: 5px;
+    }
+
+    div.detail > div {
+      padding-top: 10px;
+    }
+
+    div.item {
+      margin: 5px 2px;
+    }
+
+    div.list {
+      padding-top: 5px;
+    }
+
+    div.more {
+      display: none;
+    }
+
+    div.more div {
+      padding: 3px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+      $("div.item").click(function() {
+        $("span").removeClass("text-primary");
+        $("div.more").hide();
+
+        $(this).find("span").addClass("text-primary");
+        $(this).find("div.more").show();
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container container-padding">
+    <div class="detail border-radius">
+      <!-- for succ -->
+      <div class="col-xs-4 border-right">
+        <div class="center-80">
+          <img src="/static/img/succ.png" class="img-responsive" />
+          <div style="margin-top: 5px;">消费成功</div>
+        </div>
+        <div style="font-size: 9px;">2014/04/11 18:29:34</div>
+      </div>
+      <div class="col-xs-4 border-right">
+        <div>本次消费：</div>
+        <div class="text-primary" style="font-size: 40px; padding-top: 5px;">¥&nbsp;20</div>
+      </div>
+      <div class="col-xs-4">
+        <div class="text-muted">累计人次：</div>
+        <div>53人</div>
+        <div class="text-muted" style="margin-top: 10px;">累计消费：</div>
+        <div>¥1060</div>
+      </div>
+      <div class="clearfix"></div>
+
+      <!-- for fail -->
+      <!-- <div class="col&#45;xs&#45;4 border&#45;right"> -->
+      <!--   <div class="center&#45;80"> -->
+      <!--     <img src="/static/img/fail.png" class="img&#45;responsive" /> -->
+      <!--     <div>消费失败</div> -->
+      <!--   </div> -->
+      <!--   <div style="font&#45;size: 9px;">2014/04/11 18:29:34</div> -->
+      <!-- </div> -->
+      <!-- <div class="col&#45;xs&#45;8"> -->
+      <!--   <div>原因：</div> -->
+      <!--   <div class="font&#45;small">您错过了微沙龙的时间。</div> -->
+      <!--   <div class="font&#45;small">如有疑问，请致电微沙龙服务电话。</div> -->
+      <!--   <div class="font&#45;small">400&#45;555&#45;987</div> -->
+      <!-- </div> -->
+      <!-- <div class="clearfix"></div> -->
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <span class="time col-xs-4">
+          2014/04/11
+        </span>
+        <span class="people col-xs-5">
+          成功消费3人次
+        </span>
+        <span class="detail col-xs-3">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="item">
+        <span class="time col-xs-4">
+          2014/04/12
+        </span>
+        <span class="people col-xs-5">
+          成功消费2人次
+        </span>
+        <span class="detail col-xs-3">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="item">
+        <span class="time col-xs-4">
+          2014/04/13
+        </span>
+        <span class="people col-xs-5">
+          成功消费1人次
+        </span>
+        <span class="detail col-xs-3">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

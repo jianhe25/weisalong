@@ -3,21 +3,39 @@
    font-size: 15px;
 }
 
+.col-xs-4, .col-xs-8 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 div.container {
-  padding-top: 0px;
-  padding-bottom: 10px;
   background-color: #f3f3f3;
   max-height: 680px;
   max-width: 408px;
+}
+
+div.container-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.container-margin {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 img.small {
   width: 24px;
 }
 
+textarea {
+  resize: none;
+}
+
 .font-tiny {
   font-size: 10px;
 }
+
 .font-small {
   font-size: 12px;
 }

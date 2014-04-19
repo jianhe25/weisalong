@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container container-padding">
     <form action="" method="post" class="form" role="form">
       <div class="center-80">
         <img class="img-responsive" src="/static/img/all.png"></img>
@@ -38,12 +38,12 @@
       <p class="text-muted text-center font-small">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <!-- login success -->
-      <div id="success" class="modal fade hide" aria-hidden="true">
+      <div id="success" class="modal fade" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body">
               <img src="/static/img/succ.png" class="center-60">
-              <p class="text-center">认证成功！</p>
+              <p class="text-center" style="margin-top: 10px;">认证成功！</p>
               <p class="text-center">您可以
               <a class="text-primary" href="#">参加沙龙</a>
               或
@@ -53,12 +53,13 @@
           </div>
         </div>
       </div>
+      <!-- uncomment below to show succ -->
       <!-- <script> -->
-      <!--   $('#success').modal({'backdrop': 'static'}); -->
+      <!--   $('#success').modal(); -->
       <!-- </script> -->
 
       <!-- login fail -->
-      <div id="fail" class="modal fade hide" aria-hidden="true">
+      <div id="fail" class="modal fade" aria-hidden="true">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body">
@@ -71,10 +72,11 @@
           </div>
         </div>
       </div>
+      <!-- uncomment below to show fail -->
       <!-- <script> -->
       <!--   $('#fail').modal(); -->
       <!--   setTimeout(function() { -->
-      <!--       $('#fail').modal('hide') -->
+      <!--       $('#fail').modal('hide'); -->
       <!--   }, 3000); -->
       <!-- </script> -->
 
@@ -83,8 +85,6 @@
       </div>
     </form>
   </div>
-</div>
-
 </body>
 </html>
 

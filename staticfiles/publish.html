@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>个人资料</title>
+  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
+  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
+  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <link href="/static/css/base.css" rel="stylesheet">
+
+  <style>
+    div.input-group {
+      height: 35px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    input.form-control {
+      height: 35px;
+    }
+
+    select.form-control {
+      height: 35px;
+    }
+
+    .input-group-addon {
+      background-color: #fff;
+    }
+
+    button {
+      margin-top: 5px;
+      height: 35px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container container-padding">
+    <form action="" method="post" class="form" role="form">
+      <div class="center-70">
+        <img class="img-responsive" src="/static/img/all.png"></img>
+      </div>
+      <div class="input-group center-90">
+        <span class="input-group-addon">
+          <img src="/static/img/1.png" class="small" />
+        </span>
+        <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
+      </div>
+      <div class="input-group center-90">
+        <span class="input-group-addon">
+          <img src="/static/img/3.png" class="small" />
+        </span>
+        <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
+      </div>
+      <div class="input-group center-90">
+        <span class="input-group-addon">
+          <img src="/static/img/7.png" class="small" />
+        </span>
+        <select class="form-control">
+          <option default disabled>（共7家可选）</option>
+          <option>荷塘月色咖啡1</option>
+          <option>荷塘月色咖啡2</option>
+          <option>荷塘月色咖啡3</option>
+          <option>荷塘月色咖啡4</option>
+          <option>荷塘月色咖啡5</option>
+          <option>荷塘月色咖啡6</option>
+          <option>荷塘月色咖啡7</option>
+        </select>
+      </div>
+      <div class="input-group center-90">
+        <span class="input-group-addon">
+          <img src="/static/img/4.png" class="small" />
+        </span>
+        <select class="form-control">
+          <option default disabled>参与人数（3-7人）</option>
+          <option>3人</option>
+          <option>4人</option>
+          <option>5人</option>
+          <option>6人</option>
+          <option>7人</option>
+        </select>
+      </div>
+      <div class="input-group border-radius center-90">
+        <div class="form-control border-none">
+          <img class="small" src="/static/img/6.png"></img>
+          <span class="font-middle">微沙龙简介</span>
+        </div>
+        <textarea id="introduction" class="form-control border-none" rows="5" placeholder="请输入微沙龙的介绍"></textarea>
+      </div>
+      <div class="text-muted font-small center-80">
+        提示：发起人手机将被公开给沙龙报名参与者！
+      </div>
+      <button class="btn btn-primary btn-block center-80" type="submit">发布微沙龙</button>
+    </form>
+  </div>
+
+  <!-- publish success -->
+  <div id="success" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="/static/img/succ.png" class="center-60">
+          <p class="text-center" style="margin-top: 10px;">发布成功！</p>
+          <p class="text-center">您可以
+          <a class="text-primary" href="#">分享给微信好友</a>
+          或
+          <a class="text-primary" href="#">分享到朋友圈</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- uncomment below to show succ -->
+  <!-- <script> -->
+  <!--   $('#success').modal(); -->
+  <!-- </script> -->
+
+</div>
+
+</body>
+</html>
+
