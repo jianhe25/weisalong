@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>有效微沙龙</title>
+  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
+  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
+  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <link href="/static/css/base.css" rel="stylesheet">
+
+  <style>
+    div.detail {
+      background-color: #eee;
+      padding: 4px;
+    }
+
+    div.item {
+      margin: 7px 0;
+    }
+
+    div.item span {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    div.item span.time {
+      margin-right: 60px;
+    }
+
+    div.item span.people {
+      margin-right: 60px;
+    }
+
+    div.list {
+      padding-top: 5px;
+    }
+
+    div {
+      font-size: 14px;
+    }
+
+    #left {
+      border-right: 1px solid #ccc;
+      padding: 10px 10px 0 10px;
+    }
+
+    #state {
+      padding-left: 8px;
+    }
+
+    #time {
+      margin-left: -1px;
+      margin-top: 5px;
+      font-size: 10px;
+    }
+
+    #right {
+      padding: 10px 10px 0 10px;
+    }
+
+    #right div {
+      margin: 3px 0;
+    }
+
+    div.more {
+      display: none;
+      padding: 2px 5px 2px 0;
+    }
+
+    div.more div {
+      padding: 2px;
+    }
+
+    img {
+      width: 60px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+      $("div.item").click(function() {
+        $("span").removeClass("text-primary");
+        $("div.more").hide();
+
+        $(this).find("span").addClass("text-primary");
+        $(this).find("div.more").show();
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container container-padding-both">
+    <div class="detail border-radius">
+      <div id="left" class="pull-left">
+        <div id="state">
+          <img src="/static/img/fail.png" />
+          <div>消费成功！</div>
+        </div>
+        <div id="time">2014/04/11&nbsp;&nbsp;18:29:34</div>
+      </div>
+      <div id="right" class="pull-left">
+        <div>原因：</div>
+        <div class="font-small">您错过了微沙龙的时间。</div>
+        <div class="font-small">如有疑问，请致电微沙龙服务电话。</div>
+        <div class="font-small">400-555-987</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="list center-90">
+      <div class="item">
+        <span class="time">
+          2014/04/11
+        </span>
+        <span class="people">
+          成功消费3人次
+        </span>
+        <span class="detail">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">
+          2014/04/12
+        </span>
+        <span class="people">
+          成功消费2人次
+        </span>
+        <span class="detail">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="time">
+          2014/04/13
+        </span>
+        <span class="people">
+          成功消费1人次
+        </span>
+        <span class="detail">
+          详细
+        </span>
+        <div class="more">
+          <div class="pull-right">
+            <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
