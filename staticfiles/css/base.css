@@ -9,17 +9,14 @@ div.container {
   max-width: 408px;
 }
 
-div.container-padding-top {
-  padding-top: 10px;
-}
-
-div.container-padding-bottom {
-  padding-bottom: 10px;
-}
-
 div.container-padding-both {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+div.container-margin-both {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 div.row {
