@@ -22,6 +22,10 @@
       height: 35px;
     }
 
+    select.form-control {
+      height: 35px;
+    }
+
     .input-group-addon {
       background-color: #fff;
     }
@@ -91,6 +95,28 @@
       <button class="btn btn-primary btn-block center-80" type="submit">发布微沙龙</button>
     </form>
   </div>
+
+  <!-- publish success -->
+  <div id="success" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="/static/img/succ.png" class="center-60">
+          <p class="text-center" style="margin-top: 10px;">发布成功！</p>
+          <p class="text-center">您可以
+          <a class="text-primary" href="#">分享给微信好友</a>
+          或
+          <a class="text-primary" href="#">分享到朋友圈</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- uncomment below to show succ -->
+  <!-- <script> -->
+  <!--   $('#success').modal(); -->
+  <!-- </script> -->
+
 </div>
 
 </body>
