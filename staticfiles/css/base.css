@@ -3,18 +3,23 @@
    font-size: 15px;
 }
 
+.col-xs-4, .col-xs-8 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 div.container {
   background-color: #f3f3f3;
   max-height: 680px;
   max-width: 408px;
 }
 
-div.container-padding-both {
+div.container-padding {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-div.container-margin-both {
+div.container-margin {
   margin-top: 10px;
   margin-bottom: 10px;
 }
