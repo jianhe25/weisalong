@@ -18,20 +18,12 @@
     }
 
     div.item {
-      margin: 7px 0;
+      margin: 5px 2px;
     }
 
     div.item span {
       font-size: 14px;
       cursor: pointer;
-    }
-
-    div.item span.time {
-      margin-right: 60px;
-    }
-
-    div.item span.people {
-      margin-right: 60px;
     }
 
     div.list {
@@ -44,21 +36,22 @@
 
     #left {
       border-right: 1px solid #ccc;
-      padding: 10px 10px 0 10px;
+      padding-left: 5px;
+      padding-top: 10px;
     }
 
     #state {
-      padding-left: 8px;
+      width: 90%;
+      margin-left: 10%;
     }
 
     #time {
-      margin-left: -1px;
       margin-top: 5px;
-      font-size: 10px;
+      font-size: 9px;
     }
 
     #right {
-      padding: 10px 10px 0 10px;
+      padding-top: 10px;
     }
 
     #right div {
@@ -67,11 +60,10 @@
 
     div.more {
       display: none;
-      padding: 2px 5px 2px 0;
     }
 
     div.more div {
-      padding: 2px;
+      padding: 3px;
     }
 
     img {
@@ -94,14 +86,14 @@
 <body>
   <div class="container container-padding-both">
     <div class="detail border-radius">
-      <div id="left" class="pull-left">
+      <div id="left" class="col-xs-4">
         <div id="state">
           <img src="/static/img/fail.png" />
           <div>消费成功！</div>
         </div>
-        <div id="time">2014/04/11&nbsp;&nbsp;18:29:34</div>
+        <div id="time">2014/04/11 18:29:34</div>
       </div>
-      <div id="right" class="pull-left">
+      <div id="right" class="col-xs-8">
         <div>原因：</div>
         <div class="font-small">您错过了微沙龙的时间。</div>
         <div class="font-small">如有疑问，请致电微沙龙服务电话。</div>
@@ -109,15 +101,15 @@
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="list center-90">
+    <div class="list">
       <div class="item">
-        <span class="time">
+        <span class="time col-xs-4">
           2014/04/11
         </span>
-        <span class="people">
+        <span class="people col-xs-5">
           成功消费3人次
         </span>
-        <span class="detail">
+        <span class="detail col-xs-3">
           详细
         </span>
         <div class="more">
@@ -126,17 +118,17 @@
             <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
             <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
           </div>
-          <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
       </div>
       <div class="item">
-        <span class="time">
+        <span class="time col-xs-4">
           2014/04/12
         </span>
-        <span class="people">
+        <span class="people col-xs-5">
           成功消费2人次
         </span>
-        <span class="detail">
+        <span class="detail col-xs-3">
           详细
         </span>
         <div class="more">
@@ -144,25 +136,25 @@
             <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
             <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
           </div>
-          <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
       </div>
       <div class="item">
-        <span class="time">
+        <span class="time col-xs-4">
           2014/04/13
         </span>
-        <span class="people">
+        <span class="people col-xs-5">
           成功消费1人次
         </span>
-        <span class="detail">
+        <span class="detail col-xs-3">
           详细
         </span>
         <div class="more">
           <div class="pull-right">
             <div class="line">2014/04/11&nbsp;&nbsp;18:29:34&nbsp;&nbsp;消费成功</div>
           </div>
-          <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
