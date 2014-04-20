@@ -12,6 +12,14 @@
   <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
+    div.dropdown1 {
+      z-index: 1001;
+    }
+
+    div.dropdown2 {
+      z-index: 1000;
+    }
+
     div.input-group {
       height: 35px;
       margin-top: 10px;
@@ -19,10 +27,6 @@
     }
 
     input.form-control {
-      height: 35px;
-    }
-
-    select.form-control {
       height: 35px;
     }
 
@@ -35,6 +39,15 @@
       height: 35px;
     }
   </style>
+
+  <script>
+    $(document).ready(function() {
+      $("li a").click(function(event) {
+        $(this).parentsUntil("div").parent().find("div").html($(this).html());
+        event.preventDefault();
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container container-padding">
@@ -54,33 +67,37 @@
         </span>
         <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
       </div>
-      <div class="input-group center-90">
+      <div class="dropdown dropdown1 input-group center-90">
         <span class="input-group-addon">
           <img src="/static/img/7.png" class="small" />
         </span>
-        <select class="form-control">
-          <option default disabled>（共7家可选）</option>
-          <option>荷塘月色咖啡1</option>
-          <option>荷塘月色咖啡2</option>
-          <option>荷塘月色咖啡3</option>
-          <option>荷塘月色咖啡4</option>
-          <option>荷塘月色咖啡5</option>
-          <option>荷塘月色咖啡6</option>
-          <option>荷塘月色咖啡7</option>
-        </select>
+        <div class="form-control">
+          <div data-toggle="dropdown" href="#">地点（共7家可选）</div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡1</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡2</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡3</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡4</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡5</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡6</a></li>
+            <li role="presentation"><a role="menuitem">荷塘月色咖啡7</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="input-group center-90">
+      <div class="dropdown dropdown2 input-group center-90">
         <span class="input-group-addon">
-          <img src="/static/img/4.png" class="small" />
+          <img src="/static/img/7.png" class="small" />
         </span>
-        <select class="form-control">
-          <option default disabled>参与人数（3-7人）</option>
-          <option>3人</option>
-          <option>4人</option>
-          <option>5人</option>
-          <option>6人</option>
-          <option>7人</option>
-        </select>
+        <div class="form-control">
+          <div data-toggle="dropdown" href="#">参与人数（3-7人）</div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">3</a></li>
+            <li role="presentation"><a role="menuitem">4</a></li>
+            <li role="presentation"><a role="menuitem">5</a></li>
+            <li role="presentation"><a role="menuitem">6</a></li>
+            <li role="presentation"><a role="menuitem">7</a></li>
+          </ul>
+        </div>
       </div>
       <div class="input-group border-radius center-90">
         <div class="form-control border-none">
