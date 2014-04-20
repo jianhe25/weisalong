@@ -11,13 +11,23 @@
     
     <script type="text/javascript">
       $(document).ready(function() {
-        $(".button").click(function(button) {          
+        $(".button").click(function() {          
           if (!$(this).hasClass("active")) {
             $(".button").toggleClass("active");
           }
         });
-      }
-      );
+        $(".icon-more").click(function() {
+            $(".more").toggleClass("hidden");
+        });
+        $(".icon-less").click(function() {
+            $(".more").addClass("hidden");
+        });
+        $(".event").click( function() {
+          $('#eventModal').modal({
+            keyboard: true
+          });
+        });
+      });
     </script>
     <link href="/static/css/base.css" rel="stylesheet">
     <link href="/static/css/list.css" rel="stylesheet">
@@ -166,7 +176,7 @@
           <div class="event-detail">2/10</div>
       </div>
     </div>  
-    <div class="row event">
+    <div class="row event" data-toggle="modal" data-target="#myModal">
       <div class="left-column" >         
         <div class="event-title">    
           关于高雅艺术进校园的一些思考和如何在校园课余生活中提高自己的艺术修养
@@ -188,38 +198,37 @@
       </div>
     </div>  
     
-        <!-- Button trigger modal -->
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
-    </button>
+   
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
+        <div class="modal-content" style="padding:2%">
+          <!-- <div class="modal-body"> -->
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true" height="20"
             width="20">&times;</button>
-            <div class="row modal-row">
+            <div class="modal-row">
               <h4 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h4>          
             </div>
-            <div class="row modal-row">
+            
+            <div class="modal-row">
                 <img src="/static/img/modal-icons-id.png" class="icon">
                 <span class="modal-row-title"> 编号: 097  </span> 
-                <button class="btn btn-default button-normal" style="margin-left: 3%;"> 分享给好友/朋友圈 </button>             
-            </div>
-            <div class="row modal-row">
+                <button class="btn btn-default font-pink" style="margin-left: 3%;"> 分享给好友/朋友圈 </button>             
+            </div>              
+            <div class="modal-row">
               <img src="/static/img/modal-icons-clock.png" class="icon"> 
                 <span class="modal-row-title"> 4月11日 18:30 - 20:30 </span>
             </div>
-            <div class="row modal-row">              
+            <div class="modal-row">              
               <div> 
                 <img src="/static/img/modal-icons-geo.png" class="icon"> 
                 <span class="modal-row-title"> 荷塘月色咖啡厅 </span>
               </div>
               <div class="modal-row-detail"> 清华大学东门外 荷塘路8号楼 近春园岛上 轩榭亭东首 </div>
             </div>
-            <div class="row modal-row">
+          
+            <div class="modal-row">
               <div> 
                 <img src="/static/img/modal-icons-human.png" class="icon"> 
                 <span class="modal-row-title"> 发起人: 何剑 </span>
@@ -227,15 +236,36 @@
               <div class="modal-row-detail">美术学院视觉传达设计系</div>
               <div class="modal-row-detail font-light">报名后显示发起人手机</div>            
             </div>
-            <div class="row modal-row">                            
+            <div class="modal-row">
               <img src="/static/img/modal-icons-num.png" class="icon"> 
               <div class="modal-row-title" style="display:inline">
                 人数: 3/9 
                 <span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏 已报名</span>
-                <img src="/static/img/modal-icons-more.png" width="18" height="13">
-              </div>            
-            </div>
-            <div class="row modal-row">                            
+                <img src="/static/img/modal-icons-more.png" class="icon-more">
+              </div>  
+              <div class="more hidden" style="margin-left: 30px;">
+                <div class="people">
+                  张光
+                  <div class="text-muted">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>
+                <div class="people">
+                  张光
+                  <div class="text-muted">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>                
+                <img src="/static/img/modal-icons-less.png" class="icon-less " style="width: 18px;">
+              </div>
+            </div>          
+            <div class="modal-row">                            
               <div>
                 <img src="/static/img/modal-icons-desc.png" width="18" height="13"> 
                 <span class="modal-row-title">
@@ -245,26 +275,122 @@
               <div class="modal-row-detail">
                 只要你有这样的idea，都可以秀出来!我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
               </div>                            
-            </div>
+            </div>            
+            <!-- Can switch two class by toggleClass(hidden) -->
             <div class="last-line">
               <div id="modal-join" class="hidden">
                 <button type="button" class="btn btn-primary button-single">我要参加</button>
-              </div>
-              <!-- Can switch two class by toggleClass(hidden) -->
+              </div>              
               <div id="modal-join-success">
                 <div class="modal-tips font-tiny text-center font-light"> 活动开始前15分钟返回此页面可以领取咖啡券二维码
                 </div>
                 <button type="button" class="btn btn-primary button-half" style="margin-left: 4%">已经发布成功</button>
-                <button type="button" class="btn btn-default button-half button-normal" style="margin-left: 1%;" data-dismiss="modal">取消活动</button>
+                <button type="button" class="btn btn-default button-half font-pink" style="margin-left: 1%;" data-dismiss="modal">取消活动</button>
               </div>
             </div>
-
           </div>                         
+        </div>
+    </div>
+
+
+
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#publishModal">
+      Launch modal-publish
+    </button>
+    <div class="modal fade" id="publishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="padding:2%">
+          <!-- <div class="modal-body"> -->
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" height="20"
+            width="20">&times;</button>
+            <div class="modal-row">
+                <h4 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h4>
+            </div>
+            <div style="margin-left: 2%; margin-top: 4%">
+              <button type="button" class="btn btn-primary button-half">已经发布成功</button>
+              <button type="button" class="btn btn-default button-half font-pink" style="margin-left: 1%;" data-dismiss="modal">已申请二维码</button>
+              <div class="font-pink" style="margin-top: 2%">地点：荷塘月色咖啡</div>
+              <div class="font-pink">状态：未消费</span>
+              <div class="font-pink">使用时段：4月11日 18:30 - 20:30</div>
+              <div class="font-black">1. 显示二维码后无法取消活动</div>
+              <div class="font-black">2. 请在消费时向服务员出示，由服务员扫描可抵用相应金额</div>
+              <div class="font-black">3. 每个二维码只可扫描一次</div>          
+              <img src="/static/img/qrcode.png" style="margin-left: 15%; width: 70%; margin-top: 2%"> 
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">
+      Launch SalonSummary modal
+    </button>    
+    <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="padding:2%">
+          <!-- <div class="modal-body"> -->
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" height="20"
+            width="20">&times;</button>
+            <div class="modal-row">
+              <h4 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h4>          
+            </div>
+            <div class="modal-row">
+              <div> 
+                <img src="/static/img/modal-icons-human.png" class="icon"> 
+                <span class="modal-row-title"> 发起人: 何剑 </span>
+              </div>              
+              <div class="modal-row-detail">美术学院视觉传达设计系</div>
+              <div class="modal-row-detail font-light">报名后显示发起人手机</div>            
+            </div>
+            <div class="modal-row">
+              <img src="/static/img/modal-icons-num.png" class="icon"> 
+              <div class="modal-row-title" style="display:inline">
+                人数: 3/9 
+                <span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏 已报名</span>
+                <img class="icon-more" src="/static/img/modal-icons-more.png">                                
+              </div>            
+              <div class="more hidden" style="margin-left: 30px;">
+                <div class="people">
+                  张光
+                  <div class="font-light">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>
+                <div class="people">
+                  张光
+                  <div class="font-light">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>                
+                <img src="/static/img/modal-icons-less.png" class="icon-less " style="width: 18px;">
+              </div>
+            </div>
+            <div class="modal-row">                            
+              <div>
+                <img src="/static/img/modal-icons-desc.png" width="18" height="13"> 
+                <span class="modal-row-title">
+                  活动简介:                
+                </span>
+              </div>
+              <div class="modal-row-detail">
+                只要你有这样的idea，都可以秀出来!我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
+              </div>                            
+            </div>    
 
-  
+            <div class="modal-row text-center cute-title">
+              <h4 class="font-pink"> 沙龙已结束！请提交总结:) </h4>
+            </div>            
+            <textarea class="form-control" rows="5" placeholder="字数不少于140字" style="margin-bottom: 2%"></textarea>            
+            <button type="button" class="btn btn-primary">提交总结</button>          
+        </div>
+      </div>
+    </div>
 </body>
 </html>

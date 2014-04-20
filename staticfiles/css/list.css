@@ -126,6 +126,22 @@ span { display:inline-block; vertical-align:middle }
   height: 18px;
 }
 
-.button-normal {
+.font-light {
+  color: #BABABA;
+}
+.font-pink {
   color: #C20096;
+}
+.font-black {
+  color: #000000;
+}
+
+.cute-title { 
+  background-color: #E2E2E2; 
+  margin: 3%; 
+  border-radius: 5px;
+}
+
+.icon-more {
+  width: 18px; 
 }
