@@ -26,7 +26,7 @@
       margin-bottom: 10px;
     }
 
-    input.form-control {
+    .form-control {
       height: 35px;
     }
 
@@ -43,7 +43,7 @@
   <script>
     $(document).ready(function() {
       $("li a").click(function(event) {
-        $(this).parentsUntil("div").parent().find("div").html($(this).html());
+        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("font-light");
         event.preventDefault();
       });
     });
@@ -59,20 +59,23 @@
         <span class="input-group-addon">
           <img src="/static/img/1.png" class="small" />
         </span>
-        <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
+        <input type="text" class="form-control font-middle" placeholder="微沙龙主题 建议35字以内">
       </div>
       <div class="input-group center-90">
         <span class="input-group-addon">
           <img src="/static/img/3.png" class="small" />
         </span>
-        <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
+        <input type="text" class="form-control font-middle" placeholder="2014年4月11日 18:30-20:30">
       </div>
       <div class="dropdown dropdown1 input-group center-90">
         <span class="input-group-addon">
           <img src="/static/img/7.png" class="small" />
         </span>
         <div class="form-control">
-          <div data-toggle="dropdown" href="#">地点（共7家可选）</div>
+          <div data-toggle="dropdown">
+            <span class="font-light font-middle">所有地点（共7家可选）</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 33.5px; margin-right: -12.5px; margin-top: -6px;"/>
+          </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">荷塘月色咖啡1</a></li>
             <li role="presentation"><a role="menuitem">荷塘月色咖啡2</a></li>
@@ -86,10 +89,13 @@
       </div>
       <div class="dropdown dropdown2 input-group center-90">
         <span class="input-group-addon">
-          <img src="/static/img/7.png" class="small" />
+          <img src="/static/img/4.png" class="small" />
         </span>
         <div class="form-control">
-          <div data-toggle="dropdown" href="#">参与人数（3-7人）</div>
+          <div data-toggle="dropdown">
+            <span class="font-light font-middle">参与人数（3-7人）</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 33.5px; margin-right: -12.5px; margin-top: -6px;"/>
+          </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">3</a></li>
             <li role="presentation"><a role="menuitem">4</a></li>
