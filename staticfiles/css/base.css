@@ -1,6 +1,8 @@
 * {
-   font-family: "Microsoft YaHei";
-   font-size: 15px;
+ box-sizing: border-box;
+ -webkit-box-sizing:border-box:
+ font-family: "Microsoft YaHei";
+ font-size: 15px;
 }
 
 .col-xs-4, .col-xs-8 {
@@ -10,8 +12,8 @@
 
 div.container {
   background-color: #f3f3f3;
-  max-height: 680px;
-  max-width: 408px;
+  height: 1008px;
+  width: 640px;
 }
 
 div.container-padding {
@@ -101,3 +103,4 @@ div.row {
 .people {
   margin-top: 3%;
 }
+
