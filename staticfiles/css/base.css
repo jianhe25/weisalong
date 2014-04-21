@@ -35,7 +35,7 @@ div.container {
 }
 
 .modal-dialog > div {
-  height: 540px;
+  min-height: 540px;
 }
 
 textarea {
