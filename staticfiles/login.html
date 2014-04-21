@@ -2,88 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=640px">
+  <meta name="viewport" content='width=device-width'/>
 
   <title>首次认证</title>
-  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
-  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
-  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
-
   <style>
-    .form-control {
-      height: 45px;
-      margin-top: 20px;
-      margin-bottom: 20px
-    }
-
-    p {
-      margin-top: 20px;
+    input.form-control {
+      font-size: 24px;
+      border-radius: 10px;
+      padding-left: 30px;
+      margin-left: 60px;
+      margin-top: 30px;
+      height: 70px;
+      width: 520px;
     }
   </style>
+
+  <script>
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
+  </script>
 </head>
 <body>
   <div class="container container-padding">
     <form action="" method="post" class="form" role="form">
-      <div class="center-80" style="margin-top: 40px;">
+      <div style="margin: 50px 70px 60px 50px;">
         <img class="img-responsive" src="/static/img/all.png"></img>
       </div>
 
-      <p class="form-signin-heading">微沙龙认证</p>
-      <input type="text" name="username" class="form-control center-90" placeholder="Info学号" required></input>
-      <input type="password" name="password" class="form-control center-90" placeholder="Info密码" required></input>
-      <input type="phone" name="phone" class="form-control center-90" placeholder="手机号" required></input>
-      <button class="btn btn-lg btn-primary btn-block center-70" type="submit">提&nbsp;&nbsp;交</button>
-      <p class="text-muted text-center font-small">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
+      <p class="form-signin-heading" style="margin-left: 70px; margin-bottom: -5px; font-weight: bold; font-size: 28px;">
+        微沙龙认证
+      </p>
 
-      <!-- login success -->
-      <div id="success" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-body">
-              <img src="/static/img/succ.png" class="center-60">
-              <p class="text-center" style="margin-top: 10px;">认证成功！</p>
-              <p class="text-center">您可以
-              <a class="text-primary" href="#">参加沙龙</a>
-              或
-              <a class="text-primary" href="#">发起沙龙</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- uncomment below to show succ -->
-      <!-- <script> -->
-      <!--   $('#success').modal(); -->
-      <!-- </script> -->
+      <input type="text" name="username" class="form-control" placeholder="Info学号" required></input>
+      <input type="password" name="password" class="form-control" placeholder="Info密码" required></input>
+      <input type="phone" name="phone" class="form-control" placeholder="手机号" required></input>
 
-      <!-- login fail -->
-      <div id="fail" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-body">
-              <img src="/static/img/fail.png" class="center-60">
-              <p class="text-danger text-center">认证失败</p>
-              <p class="text-muted text-center">
-              您需要核对信息后再次提交
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- uncomment below to show fail -->
-      <!-- <script> -->
-      <!--   $('#fail').modal(); -->
-      <!--   setTimeout(function() { -->
-      <!--       $('#fail').modal('hide'); -->
-      <!--   }, 3000); -->
-      <!-- </script> -->
+      <button class="btn btn-lg btn-primary btn-block" style="width: 400px; height: 70px; margin: 45px 120px 25px; font-size: 28px;" type="submit">
+        提&nbsp;&nbsp;交
+      </button>
+      <p class="text-muted text-center" style="margin: 0 70px 60px; font-size: 18px;">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <div class="center-60">
-        <img class="img-responsive" src="/static/img/tsinghua.png"></img>
+        <img class="img-responsive" src="/static/img/tsinghua.png" style="width: 340px; margin-left: 150px;"></img>
       </div>
+
     </form>
+
+    <!-- login success -->
+    <div id="success" class="modal fade" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <img src="/static/img/succ.png" style="width: 220px; margin: 135px 160px 35px 160px;">
+          <p class="text-center" style="">认证成功！</p>
+          <p class="text-center">您可以
+          <a class="text-primary" href="#">参加沙龙</a>
+          或
+          <a class="text-primary" href="#">发起沙龙</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- uncomment below to show succ -->
+    <!-- <script> -->
+    <!--   $('#success').modal(); -->
+    <!-- </script> -->
+
+    <!-- login fail -->
+    <div id="fail" class="modal fade" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <img src="/static/img/fail.png" style="width: 160px; margin: 120px 190px 45px 190px;">
+          <p class="text-danger text-center">认证失败！</p>
+          <p class="text-muted text-center">
+          您需要核对信息后再次提交
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- uncomment below to show fail -->
+    <!-- <script> -->
+    <!--   $('#fail').modal(); -->
+    <!--   setTimeout(function() { -->
+    <!--       $('#fail').modal('hide'); -->
+    <!--   }, 3000); -->
+    <!-- </script> -->
   </div>
 </body>
 </html>
