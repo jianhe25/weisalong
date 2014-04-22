@@ -39,6 +39,10 @@ div.container {
   color: #d020a0;
 }
 
+a, a:hover {
+  color: #d020a0;
+}
+
 .text-danger {
   color: #f00;
 }
@@ -69,10 +73,6 @@ textarea {
 .border-radius {
   border: 1px solid #ccc;
   border-radius: 10px;
-}
-
-.font-light {
-  color: #a9a9a9;
 }
 
 div.row {

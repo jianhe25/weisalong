@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=640px">
+  <meta name="viewport" content='width=device-width'/>
 
   <title>个人资料</title>
-  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
-  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
-  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
@@ -21,60 +20,46 @@
     }
 
     div.input-group {
-      height: 35px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    .form-control {
-      height: 35px;
-    }
-
-    .input-group-addon {
-      background-color: #fff;
-    }
-
-    button {
-      margin-top: 5px;
-      height: 35px;
+      margin: 0 60px 20px;
     }
   </style>
 
   <script>
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
     $(document).ready(function() {
       $("li a").click(function(event) {
-        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("font-light");
+        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
         event.preventDefault();
       });
     });
   </script>
 </head>
 <body>
-  <div class="container container-padding">
+  <div class="container">
     <form action="" method="post" class="form" role="form">
-      <div class="center-70">
-        <img class="img-responsive" src="/static/img/all.png"></img>
+      <div>
+        <img class="img-responsive" src="/static/img/all.png" style="margin: 30px 140px 30px 120px; width: 380px;"></img>
       </div>
-      <div class="input-group center-90">
+      <div class="input-group">
         <span class="input-group-addon">
-          <img src="/static/img/subject.png" class="small" />
+          <img src="/static/img/subject.png" />
         </span>
-        <input type="text" class="form-control font-middle" placeholder="微沙龙主题 建议35字以内">
+        <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
-      <div class="input-group center-90">
+      <div class="input-group">
         <span class="input-group-addon">
-          <img src="/static/img/clock.png" class="small" />
+          <img src="/static/img/clock.png" />
         </span>
-        <input type="text" class="form-control font-middle" placeholder="2014年4月11日 18:30-20:30">
+        <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
       </div>
-      <div class="dropdown dropdown1 input-group center-90">
+      <div class="dropdown dropdown1 input-group">
         <span class="input-group-addon">
-          <img src="/static/img/place.png" class="small" />
+          <img src="/static/img/place.png" />
         </span>
-        <div class="form-control">
+        <div class="form-control" style="padding-top: 18px;">
           <div data-toggle="dropdown">
-            <span class="font-light font-middle">所有地点（共7家可选）</span>
-            <img src="/static/img/arrow.png" class="pull-right" style="height: 33.5px; margin-right: -12.5px; margin-top: -6px;"/>
+            <span class="text-muted">所有地点（共7家可选）</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
           </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">荷塘月色咖啡1</a></li>
@@ -87,14 +72,14 @@
           </ul>
         </div>
       </div>
-      <div class="dropdown dropdown2 input-group center-90">
+      <div class="dropdown dropdown2 input-group">
         <span class="input-group-addon">
-          <img src="/static/img/num_circle_gray.png" class="small" />
+          <img src="/static/img/num_circle_gray.png" />
         </span>
-        <div class="form-control">
+        <div class="form-control" style="padding-top: 18px;">
           <div data-toggle="dropdown">
-            <span class="font-light font-middle">参与人数（3-7人）</span>
-            <img src="/static/img/arrow.png" class="pull-right" style="height: 33.5px; margin-right: -12.5px; margin-top: -6px;"/>
+            <span class="text-muted">参与人数（3-7人）</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
           </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">3</a></li>
@@ -105,36 +90,35 @@
           </ul>
         </div>
       </div>
-      <div class="input-group border-radius center-90">
-        <div class="form-control border-none">
-          <img class="small" src="/static/img/desc.png"></img>
-          <span class="font-middle">微沙龙简介</span>
+      <div class="input-group border-radius" style="width: 520px;">
+        <div class="form-control border-none" style="padding-top: 18px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+          <img src="/static/img/desc.png"></img>
+          <span style="margin-left: 22px;">微沙龙简介</span>
         </div>
-        <textarea id="introduction" class="form-control border-none" rows="5" placeholder="请输入微沙龙的介绍"></textarea>
+        <textarea class="form-control border-none" rows="5" placeholder="请输入微沙龙的介绍" style="font-size: 20px; height: 210px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0;"></textarea>
       </div>
-      <div class="text-muted font-small center-80">
+      <div class="text-muted" style="margin: 0 0 30px 70px; font-size: 18px;">
         提示：发起人手机将被公开给沙龙报名参与者！
       </div>
-      <button class="btn btn-primary btn-block center-80" type="submit">发布微沙龙</button>
+      <div class="btn-primary" type="submit" style="margin: 0 90px; height: 60px; width: 460px; letter-spacing: 8px; padding-top: 12px;">发布微沙龙</div>
     </form>
   </div>
 
   <!-- publish success -->
   <div id="success" class="modal fade" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="/static/img/succ.png" class="center-60">
-          <p class="text-center" style="margin-top: 10px;">发布成功！</p>
-          <p class="text-center">您可以  
-          <a class="text-primary" href="#">分享给微信好友</a>
-          或
-          <a class="text-primary" href="#">分享到朋友圈</a>
-          </p>
-        </div>
+        <img src="/static/img/succ.png" style="margin: 135px 170px 30px;">
+        <p class="text-center" style="margin-top: 10px;">发布成功！</p>
+        <p class="text-center" style="margin-left: 90px; margin-right: 90px;">您可以
+        <a class="text-primary" href="#">分享给微信好友</a>
+        或
+        <a class="text-primary" href="#">分享到朋友圈</a>
+        </p>
       </div>
     </div>
   </div>
+
   <!-- uncomment below to show succ -->
   <!-- <script> -->
   <!--   $('#success').modal(); -->
