@@ -1,6 +1,26 @@
-* {
+*, .form-control, .input-group-addon, .btn-primary {
  font-family: "Microsoft YaHei";
  font-size: 24px;
+}
+
+.btn-primary {
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-control {
+  height: 70px;
+  border-radius: 10px;
+}
+
+.input-group-addon {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.input-group {
+  height: 70px;
 }
 
 div.container {
@@ -51,17 +71,13 @@ textarea {
   border-radius: 10px;
 }
 
+.font-light {
+  color: #a9a9a9;
+}
+
 div.row {
   padding-left: 5px;
   padding-right: 5px;
-}
-
-.hidden {
-  display: none;
-}
-
-.font-light {
-  color: #A9A9A9;
 }
 
 .people {
