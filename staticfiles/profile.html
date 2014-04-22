@@ -9,6 +9,7 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
+
   <style>
     div.input-group {
       margin: 0 60px 10px;
@@ -17,10 +18,20 @@
     div.form-control {
       padding-top: 20px;
     }
+
+    div.dropdown {
+      z-index: 1000;
+    }
   </style>
 
   <script>
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
+    $(document).ready(function() {
+      $("li a").click(function(event) {
+        $(this).parentsUntil("div").parent().find("span").html($(this).html());
+        event.preventDefault();
+      });
+    });
   </script>
 </head>
 <body>
@@ -37,9 +48,22 @@
         <span class="input-group-addon">学号</span>
         <input type="text" class="form-control" value="2012000000">
       </div>
-      <div class="input-group">
+      <div class="dropdown input-group">
         <span class="input-group-addon">院系</span>
-        <input type="text" class="form-control" value="马克思主义学院">
+        <div class="form-control" style="padding-top: 18px;">
+          <div data-toggle="dropdown">
+            <span>院系A</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
+          </div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">院系A</a></li>
+            <li role="presentation"><a role="menuitem">院系B</a></li>
+            <li role="presentation"><a role="menuitem">院系C</a></li>
+            <li role="presentation"><a role="menuitem">院系D</a></li>
+            <li role="presentation"><a role="menuitem">院系E</a></li>
+            <li role="presentation"><a role="menuitem">院系F</a></li>
+          </ul>
+        </div>
       </div>
       <div class="input-group">
         <span class="input-group-addon">手机</span>

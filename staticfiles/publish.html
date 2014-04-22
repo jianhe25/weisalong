@@ -8,6 +8,8 @@
   <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/static/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <link href="/static/css/lib/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
@@ -22,11 +24,40 @@
     div.input-group {
       margin: 0 60px 20px;
     }
+
+    .bootstrap-datetimepicker-widget {
+      width: 305px;
+    }
+
+    td, td span {
+      font-size: 18px;
+    }
+
+    div.container {
+      height: 1100px;
+    }
   </style>
 
   <script>
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
-    $(document).ready(function() {
+    $(function() {
+      $.fn.datetimepicker.dates['en'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今日",
+        meridiem: ["上午", "下午"],
+        suffix: [],
+      };
+
+      $('#datetimepicker1').datetimepicker({
+        weekStart: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left'
+      });
+      $('#datetimepicker2').datetimepicker({
+        weekStart: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left'
+      });
       $("li a").click(function(event) {
         $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
         event.preventDefault();
@@ -46,11 +77,19 @@
         </span>
         <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
-      <div class="input-group">
+      <div id="datetimepicker1" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
           <img src="/static/img/clock.png" />
         </span>
-        <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
+        <input type="text" class="form-control" readonly>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
+      </div>
+      <div id="datetimepicker2" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
+        <span class="input-group-addon">
+          <img src="/static/img/clock.png" />
+        </span>
+        <input type="text" class="form-control" readonly>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
       </div>
       <div class="dropdown dropdown1 input-group">
         <span class="input-group-addon">
