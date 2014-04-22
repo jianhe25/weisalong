@@ -49,7 +49,7 @@
 }
 
 .active {
-  color: #fff;
+  color: #FFFFFF;
   background: -webkit-linear-gradient(#E9009A, #AE0098);
 }    
 
@@ -65,15 +65,15 @@
 }
 .modal-row {          
   border-bottom: 1px solid #CCCCCC;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 18px;
+  padding-top: 18px;
 }
 span { display:inline-block; vertical-align:middle }
       
 .modal-row-detail {
   color: #666666;
-  font-size: 13px;
-  margin-left: 32px;
+  font-size: 22px;
+  margin-left: 41px;
 }
 
 .modal-content {
@@ -88,14 +88,13 @@ span { display:inline-block; vertical-align:middle }
 .button-single {
   margin-left: 5%;
   width: 90%;
-  margin-top: 20px;          
+  height: 60px;
+  margin-top: 20px;   
 }
-
-
-
 
 .button-half {
   width: 45%;
+  height: 60px;
 }
 
 .modal-tips {
@@ -104,7 +103,7 @@ span { display:inline-block; vertical-align:middle }
 }
 
 .icon {
-  width: 23px;
+  width: 25px;
 }
 
 .font-light {
@@ -113,10 +112,9 @@ span { display:inline-block; vertical-align:middle }
 .font-pink {
   color: #C20096;
 }
-.font-black {
-  color: #000000;
+.font-small {
+  font-size: 20px;
 }
-
 
 .cute-title { 
   background-color: #E2E2E2; 
@@ -124,6 +122,23 @@ span { display:inline-block; vertical-align:middle }
   border-radius: 5px;
 }
 
-.icon-more {
-  width: 18px; 
+.qrcode-section {
+  margin-left: 28px;
+  margin-top: 4%;
+}
+.qrcode {
+  margin-left: 12%; 
+  width: 70%; 
+  margin-top: 13px;
+}
+p {
+  margin: 0px;
+}
+button.btn {
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.btn-default, .btn-default:hover {  
+  color: #C20096;
 }
