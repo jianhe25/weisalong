@@ -39,6 +39,10 @@ div.container {
   color: #d020a0;
 }
 
+a, a:hover {
+  color: #d020a0;
+}
+
 .text-danger {
   color: #f00;
 }

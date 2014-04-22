@@ -5,89 +5,84 @@
   <meta name="viewport" content="width=640px">
 
   <title>微沙龙-分享</title>
-  <link href="/static/css/lib/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/lib/bootstrap-theme.min.css" rel="stylesheet">
-  <script src="/static/js/lib/jquery-2.1.0.min.js"></script>
-  <script src="/static/js/lib/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
     div.title {
-      padding: 10px 15px;
+      overflow: hidden;
+      padding: 25px 20px 5px;
       border-bottom: 1px solid #ccc;
+      height: 115px;
     }
 
     div.content {
-      padding: 8px 10px;
+      padding: 20px;
       border-bottom: 1px solid #ccc;
-    }
-
-    div.content a {
-      font-size: 14px;
+      height: 70px;
     }
 
     div.content span {
       padding-left: 5px;
-      font-size: 14px;
-    }
-
-    div.content .text-muted {
-      font-size: 12px;
     }
 
     div.last {
-      padding: 30px 0;
+      height: 175px;
       line-height: 1.6;
     }
   </style>
+
+  <script>
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
+  </script>
 </head>
 <body>
-  <div class="container container-padding">
-    <div class="center-60">
-      <img class="img-responsive" src="/static/img/all.png"></img>
+  <div class="container">
+    <div>
+      <img class="img-responsive" src="/static/img/all.png" style="margin: 30px 140px 20px 120px; width: 380px;"></img>
     </div>
-    <div class="container-margin border-radius center-90">
+    <div class="border-radius" style="margin: 0 50px;">
       <div class="title">
         关于高雅艺术进校园的一些思考和如何提高自己的艺术修养
       </div>
       <div class="content">
-        <img src="/static/img/id.png" class="small" />
+        <img src="/static/img/id.png" />
         <span>编号：<a href="">097</a></span>
       </div>
       <div class="content">
-        <img src="/static/img/clock.png" class="small" />
+        <img src="/static/img/clock.png" />
         <span>4月11日 18:30-20:30</span>
       </div>
       <div class="content">
-        <img src="/static/img/place.png" class="small" />
+        <img src="/static/img/place.png" />
         <span>荷塘月色咖啡厅</span>
       </div>
       <div class="content">
-        <img src="/static/img/human.png" class="small" />
+        <img src="/static/img/human.png" />
         <span>发起人：刘厂</span>
       </div>
       <div class="content">
-        <img src="/static/img/num_circle_gray.png" class="small" />
+        <img src="/static/img/num_circle_gray.png" />
         <span>人数：5/9</span>
-        <span class="text-muted">张光 李晶 王敏已报名</span>
+        <span class="text-muted" style="font-size: 20px;">张光 李晶 王敏已报名</span>
       </div>
-      <div class="content">
-        <img src="/static/img/desc.png" class="small" />
+      <div class="content" style="height: 160px;">
+        <img src="/static/img/desc.png" />
         <span>活动简介：</span>
-        <div class="text-muted center-80">
-          只要你有这样的idea，都可以秀出来！
-          我们会从中选出5个，每个创意可以得到2000元人民币的奖励！
+        <div class="text-muted" style="font-size: 20px; margin-left: 38px; margin-right: 20px;">
+          只要你有这样的idea，都可以秀出来！我们会从中选出5个，每个创意可以得到2000元人民币的奖励！
         </div>
       </div>
-      <div class="last">
-        <div class="font-small center-80">
-          <img src="/static/img/i.png" class="small pull-left" />
+      <div class="last" style="padding: 50px;">
+        <div>
+          <img src="/static/img/i.png" class="pull-left" />
           <div style="margin-left: 40px">
             <div>关注公众号<a href="">清华大学小研在线</a></div>
             <div>输入<a href="">@097</a>可以报名此活动</div>
           </div>
         </div>
-        <div class="clearfix"></div>
       </div>
     </div>
   </div>
