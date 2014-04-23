@@ -21,6 +21,16 @@
 
   <script>
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
+    $(function() {
+      $("div[type=submit]").click(function() {
+        var value = $("input[name=username]").val();
+        if (value === "") {
+          alert("请输入学号！");
+        } else {
+          $("button[type=submit]").click();
+        }
+      });
+    });
   </script>
 </head>
 <body>
@@ -39,12 +49,12 @@
       <input type="phone" name="phone" class="form-control" placeholder="手机号" required></input>
 
       <div class="btn-primary" style="width: 400px; height: 70px; margin: 45px 120px 25px; font-size: 28px; letter-spacing: 12px; padding-top: 15px;" type="submit">提交</div>
+      <button type="submit" style="display: none"></button>
       <p class="text-muted text-center" style="margin: 0 70px 60px; font-size: 18px;">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <div>
         <img src="/static/img/tsinghua.png" style="width: 340px; margin-left: 150px;"></img>
       </div>
-
     </form>
 
     <!-- login success -->

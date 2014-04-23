@@ -54,6 +54,9 @@
   <script>
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
     $(function() {
+      $("div[type=submit]").click(function() {
+        $("button[type=submit]").click();
+      });
       $.fn.datetimepicker.dates['en'] = {
         days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
         daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
@@ -153,6 +156,7 @@
         提示：发起人手机将被公开给沙龙报名参与者！
       </div>
       <div class="btn-primary" type="submit" style="margin: 0 90px; height: 60px; width: 460px; letter-spacing: 8px; padding-top: 15px;">发布微沙龙</div>
+      <button type="submit" style="display: none;"></button>
     </form>
   </div>
 

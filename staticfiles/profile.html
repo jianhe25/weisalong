@@ -26,7 +26,10 @@
 
   <script>
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
-    $(document).ready(function() {
+    $(function() {
+      $("div[type=submit]").click(function() {
+        $("button[type=submit]").click();
+      });
       $("li a").click(function(event) {
         $(this).parentsUntil("div").parent().find("span").html($(this).html());
         event.preventDefault();
@@ -85,6 +88,7 @@
         <textarea class="form-control border-none" rows="3" style="height: 140px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0;">hello world!</textarea>
       </div>
       <div class="btn-primary" style="margin: 40px 85px; height: 55px; width: 470px; letter-spacing: 5px; padding-top: 10px;" type="submit">保存修改</div>
+      <button type="submit" style="display: none"></button>
     </form>
   </div>
 </div>
