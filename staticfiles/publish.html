@@ -8,28 +8,84 @@
   <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/static/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <link href="/static/css/lib/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
     div.dropdown1 {
-      z-index: 1001;
+      z-index: 1002;
     }
 
     div.dropdown2 {
+      z-index: 1001;
+    }
+
+    div.dropdown3 {
       z-index: 1000;
     }
 
     div.input-group {
       margin: 0 60px 20px;
     }
+
+    .bootstrap-datetimepicker-widget {
+      width: 305px;
+    }
+
+    td, td span {
+      font-size: 18px;
+    }
+
+    .table-condensed {
+      width: 500px;
+    }
+
+    .table-condensed>tbody>tr>td {
+      padding: 20px;
+    }
+
+    .table-condensed>tbody>tr>td span {
+      height: 30px;
+      margin-top: 25px;
+    }
+
+    div.container {
+      height: 1100px;
+    }
   </style>
 
   <script>
-    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
-    $(document).ready(function() {
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
+    $(function() {
+      $("div[type=submit]").click(function() {
+        $("button[type=submit]").click();
+      });
+
       $("li a").click(function(event) {
         $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
         event.preventDefault();
+      });
+
+      $.fn.datetimepicker.dates['en'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今日",
+        meridiem: ["上午", "下午"],
+        suffix: [],
+      };
+
+      var getDate = function() {
+        var date = new Date();
+        date.setTime(date.getTime() + 12 * 3600 * 1000);
+        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
+      };
+
+      $('#datetimepicker').datetimepicker({
+        weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
       });
     });
   </script>
@@ -38,7 +94,7 @@
   <div class="container">
     <form action="" method="post" class="form" role="form">
       <div>
-        <img class="img-responsive" src="/static/img/all.png" style="margin: 30px 140px 30px 120px; width: 380px;"></img>
+        <img src="/static/img/all.png" style="margin: 30px 140px 30px 120px; width: 380px;"></img>
       </div>
       <div class="input-group">
         <span class="input-group-addon">
@@ -46,13 +102,37 @@
         </span>
         <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
-      <div class="input-group">
+
+      <div id="datetimepicker" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
           <img src="/static/img/clock.png" />
         </span>
-        <input type="text" class="form-control" placeholder="2014年4月11日 18:30-20:30">
+        <input type="text" class="form-control" placeholder="起始时间（至少12小时后）" readonly>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 10px; margin-bottom: 5px;"></span></span>
       </div>
+
       <div class="dropdown dropdown1 input-group">
+        <span class="input-group-addon">
+          <img src="/static/img/clock.png" />
+        </span>
+        <div class="form-control" style="padding-top: 18px;">
+          <div data-toggle="dropdown">
+            <span class="text-muted">持续时间</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
+          </div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">30分钟</a></li>
+            <li role="presentation"><a role="menuitem">60分钟</a></li>
+            <li role="presentation"><a role="menuitem">90分钟</a></li>
+            <li role="presentation"><a role="menuitem">120分钟</a></li>
+            <li role="presentation"><a role="menuitem">150分钟</a></li>
+            <li role="presentation"><a role="menuitem">180分钟</a></li>
+            <li role="presentation"><a role="menuitem">210分钟</a></li>
+            <li role="presentation"><a role="menuitem">240分钟</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown dropdown2 input-group">
         <span class="input-group-addon">
           <img src="/static/img/place.png" />
         </span>
@@ -72,7 +152,7 @@
           </ul>
         </div>
       </div>
-      <div class="dropdown dropdown2 input-group">
+      <div class="dropdown dropdown3 input-group">
         <span class="input-group-addon">
           <img src="/static/img/num_circle_gray.png" />
         </span>
@@ -100,14 +180,16 @@
       <div class="text-muted" style="margin: 0 0 30px 70px; font-size: 18px;">
         提示：发起人手机将被公开给沙龙报名参与者！
       </div>
-      <div class="btn-primary" type="submit" style="margin: 0 90px; height: 60px; width: 460px; letter-spacing: 8px; padding-top: 12px;">发布微沙龙</div>
+      <div class="btn-primary" type="submit" style="margin: 0 90px; height: 60px; width: 460px; letter-spacing: 8px; padding-top: 15px;">发布微沙龙</div>
+      <button type="submit" style="display: none;"></button>
     </form>
   </div>
 
   <!-- publish success -->
-  <div id="success" class="modal fade" aria-hidden="true">
+  <div id="success" class="modal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; position: relative; left: 25px; bottom: 25px">
         <img src="/static/img/succ.png" style="margin: 135px 170px 30px;">
         <p class="text-center" style="margin-top: 10px;">发布成功！</p>
         <p class="text-center" style="margin-left: 90px; margin-right: 90px;">您可以

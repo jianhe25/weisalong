@@ -9,6 +9,7 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
+
   <style>
     div.input-group {
       margin: 0 60px 10px;
@@ -17,17 +18,30 @@
     div.form-control {
       padding-top: 20px;
     }
+
+    div.dropdown {
+      z-index: 1000;
+    }
   </style>
 
   <script>
-    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
+    $(function() {
+      $("div[type=submit]").click(function() {
+        $("button[type=submit]").click();
+      });
+      $("li a").click(function(event) {
+        $(this).parentsUntil("div").parent().find("span").html($(this).html());
+        event.preventDefault();
+      });
+    });
   </script>
 </head>
 <body>
   <div class="container">
     <form action="" method="post" class="form" role="form">
       <div>
-        <img class="img-responsive" src="/static/img/all.png" style="width: 380px; margin: 25px 140px 25px 120px;"/>
+        <img src="/static/img/all.png" style="width: 380px; margin: 25px 140px 25px 120px;"/>
       </div>
       <div class="input-group">
         <span class="input-group-addon">姓名</span>
@@ -37,9 +51,22 @@
         <span class="input-group-addon">学号</span>
         <input type="text" class="form-control" value="2012000000">
       </div>
-      <div class="input-group">
+      <div class="dropdown input-group">
         <span class="input-group-addon">院系</span>
-        <input type="text" class="form-control" value="马克思主义学院">
+        <div class="form-control" style="padding-top: 18px;">
+          <div data-toggle="dropdown">
+            <span>院系A</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
+          </div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">院系A</a></li>
+            <li role="presentation"><a role="menuitem">院系B</a></li>
+            <li role="presentation"><a role="menuitem">院系C</a></li>
+            <li role="presentation"><a role="menuitem">院系D</a></li>
+            <li role="presentation"><a role="menuitem">院系E</a></li>
+            <li role="presentation"><a role="menuitem">院系F</a></li>
+          </ul>
+        </div>
       </div>
       <div class="input-group">
         <span class="input-group-addon">手机</span>
@@ -60,7 +87,8 @@
         </div>
         <textarea class="form-control border-none" rows="3" style="height: 140px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0;">hello world!</textarea>
       </div>
-      <div class="btn-primary" style="margin: 40px 85px; padding-top: 10px; height: 55px; width: 470px; letter-spacing: 5px;" type="submit">保存修改</div>
+      <div class="btn-primary" style="margin: 40px 85px; height: 55px; width: 470px; letter-spacing: 5px; padding-top: 10px;" type="submit">保存修改</div>
+      <button type="submit" style="display: none"></button>
     </form>
   </div>
 </div>
