@@ -23,11 +23,31 @@
     $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0"');
     $(function() {
       $("div[type=submit]").click(function() {
-        var value = $("input[name=username]").val();
-        if (value === "") {
+        if ($.trim($("input[name=username]").val()) == "") {
           alert("请输入学号！");
+        } else if ($.trim($("input[name=password]").val()) == "") {
+          alert("请输入密码！");
+        } else if ($.trim($("input[name=phone]").val()) == "") {
+          alert("请输入电话！");
         } else {
-          $("button[type=submit]").click();
+          $.post("/login/", {
+            "username": $.trim($("input[name=username]").val()),
+            "password": $.trim($("input[name=password]").val()),
+            "phone": $.trim($("input[name=phone]").val()),
+          }).done(function(data) {
+            $("div[type=submit]").html("提交").css("letter-spacing", "12px");
+            // TODO: check whether login is success or not
+            var success = true;
+            if (success) {
+              $('#success').modal();
+            } else {
+              $('#fail').modal();
+              setTimeout(function() {
+                  $('#fail').modal('hide');
+              }, 3000);
+            }
+          });
+          $("div[type=submit]").html("登录中......").css("letter-spacing", "0");
         }
       });
     });
@@ -46,7 +66,7 @@
 
       <input type="text" name="username" class="form-control" placeholder="Info学号" required></input>
       <input type="password" name="password" class="form-control" placeholder="Info密码" required></input>
-      <input type="phone" name="phone" class="form-control" placeholder="手机号" required></input>
+      <input type="text" name="phone" class="form-control" placeholder="手机号" required></input>
 
       <div class="btn-primary" style="width: 400px; height: 70px; margin: 45px 120px 25px; font-size: 28px; letter-spacing: 12px; padding-top: 15px;" type="submit">提交</div>
       <button type="submit" style="display: none"></button>
@@ -58,7 +78,7 @@
     </form>
 
     <!-- login success -->
-    <div id="success" class="modal fade" aria-hidden="true">
+    <div id="success" class="modal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; position: relative; left: 25px; bottom: 25px">
@@ -72,13 +92,9 @@
         </div>
       </div>
     </div>
-    <!-- uncomment below to show succ -->
-    <!-- <script> -->
-    <!--   $('#success').modal(); -->
-    <!-- </script> -->
 
     <!-- login fail -->
-    <div id="fail" class="modal fade" aria-hidden="true">
+    <div id="fail" class="modal" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; position: relative; left: 25px; bottom: 25px">
@@ -90,13 +106,6 @@
         </div>
       </div>
     </div>
-    <!-- uncomment below to show fail -->
-    <!-- <script> -->
-    <!--   $('#fail').modal(); -->
-    <!--   setTimeout(function() { -->
-    <!--       $('#fail').modal('hide'); -->
-    <!--   }, 3000); -->
-    <!-- </script> -->
   </div>
 </body>
 </html>
