@@ -14,10 +14,14 @@
 
   <style>
     div.dropdown1 {
-      z-index: 1001;
+      z-index: 1002;
     }
 
     div.dropdown2 {
+      z-index: 1001;
+    }
+
+    div.dropdown3 {
       z-index: 1000;
     }
 
@@ -80,10 +84,7 @@
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
       };
 
-      $('#datetimepicker1').datetimepicker({
-        weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
-      });
-      $('#datetimepicker2').datetimepicker({
+      $('#datetimepicker').datetimepicker({
         weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
       });
     });
@@ -102,22 +103,36 @@
         <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
 
-      <div id="datetimepicker1" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
+      <div id="datetimepicker" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
           <img src="/static/img/clock.png" />
         </span>
         <input type="text" class="form-control" placeholder="起始时间（至少12小时后）" readonly>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
-      </div>
-      <div id="datetimepicker2" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
-        <span class="input-group-addon">
-          <img src="/static/img/clock.png" />
-        </span>
-        <input type="text" class="form-control" placeholder="结束时间" readonly>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 10px; margin-bottom: 5px;"></span></span>
       </div>
 
       <div class="dropdown dropdown1 input-group">
+        <span class="input-group-addon">
+          <img src="/static/img/clock.png" />
+        </span>
+        <div class="form-control" style="padding-top: 18px;">
+          <div data-toggle="dropdown">
+            <span class="text-muted">持续时间</span>
+            <img src="/static/img/arrow.png" class="pull-right" style="height: 68px; margin-right: -12px; margin-top: -18px;"/>
+          </div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li role="presentation"><a role="menuitem">30分钟</a></li>
+            <li role="presentation"><a role="menuitem">60分钟</a></li>
+            <li role="presentation"><a role="menuitem">90分钟</a></li>
+            <li role="presentation"><a role="menuitem">120分钟</a></li>
+            <li role="presentation"><a role="menuitem">150分钟</a></li>
+            <li role="presentation"><a role="menuitem">180分钟</a></li>
+            <li role="presentation"><a role="menuitem">210分钟</a></li>
+            <li role="presentation"><a role="menuitem">240分钟</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown dropdown2 input-group">
         <span class="input-group-addon">
           <img src="/static/img/place.png" />
         </span>
@@ -137,7 +152,7 @@
           </ul>
         </div>
       </div>
-      <div class="dropdown dropdown2 input-group">
+      <div class="dropdown dropdown3 input-group">
         <span class="input-group-addon">
           <img src="/static/img/num_circle_gray.png" />
         </span>
