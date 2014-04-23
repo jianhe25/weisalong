@@ -57,6 +57,12 @@
       $("div[type=submit]").click(function() {
         $("button[type=submit]").click();
       });
+
+      $("li a").click(function(event) {
+        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
+        event.preventDefault();
+      });
+
       $.fn.datetimepicker.dates['en'] = {
         days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
         daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
@@ -68,15 +74,17 @@
         suffix: [],
       };
 
+      var getDate = function() {
+        var date = new Date();
+        date.setTime(date.getTime() + 12 * 3600 * 1000);
+        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
+      };
+
       $('#datetimepicker1').datetimepicker({
-        weekStart: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left'
+        weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
       });
       $('#datetimepicker2').datetimepicker({
-        weekStart: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left'
-      });
-      $("li a").click(function(event) {
-        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
-        event.preventDefault();
+        weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
       });
     });
   </script>
@@ -93,20 +101,22 @@
         </span>
         <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
+
       <div id="datetimepicker1" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
           <img src="/static/img/clock.png" />
         </span>
-        <input type="text" class="form-control" readonly>
+        <input type="text" class="form-control" placeholder="起始时间（至少12小时后）" readonly>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
       </div>
       <div id="datetimepicker2" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
           <img src="/static/img/clock.png" />
         </span>
-        <input type="text" class="form-control" readonly>
+        <input type="text" class="form-control" placeholder="结束时间" readonly>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 5px; margin-bottom: 5px;"></span></span>
       </div>
+
       <div class="dropdown dropdown1 input-group">
         <span class="input-group-addon">
           <img src="/static/img/place.png" />
