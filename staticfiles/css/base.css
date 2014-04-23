@@ -1,6 +1,6 @@
 *, .form-control, .input-group-addon, .btn-primary {
  font-family: "Microsoft YaHei";
- font-size: 26px !important;
+ font-size: 26px;
 }
 
 .btn-primary {

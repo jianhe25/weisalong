@@ -6,12 +6,11 @@
     <meta name="viewport" content='width=device-width'/>
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/static/js/base.js"></script>
     <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/base.css" rel="stylesheet">
 
     <script type="text/javascript">
-      $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0">');
-
       $(document).ready(function() {
         $(".button").click(function() {
           if (!$(this).hasClass("active")) {
@@ -28,6 +27,10 @@
           $('#eventModal').modal({
             keyboard: true
           });
+        });
+        $("#modal-join").click( function() {
+          $("#modal-cancel").removeClass("hidden");
+          $("#modal-join").addClass("hidden");
         });
       });
     </script>
@@ -248,16 +251,18 @@
             </p>
           </div>
           <!-- Can switch two class by toggleClass(hidden) -->
-          <div class="last-line">
-            <div id="modal-join" >
-              <button type="button" class="btn btn-primary button-single">我要参加</button>
-            </div>
-            <div id="modal-join-success">
-              <p class="modal-tips text-center font-light" style="font-size:20px"> 活动开始前15分钟返回此页面可以领取咖啡券二维码 </p>
-              <button type="button" class="btn btn-primary button-half" style="margin-left: 4%">已发布成功！</button>
-              <button type="button" class="btn btn-default button-half font-pink" style="margin-left: 1%;" data-dismiss="modal">取消活动</button>
-            </div>
+          
+          
+          <button id="modal-join" type="button" class="btn btn-primary button-single" style="margin-top:20px;">我要参加</button>
+          
+          <div id="modal-cancel" class="hidden">
+            <div class="text-center text-hint" style="height : 60px; line-height: 60px">
+              <p class="font-pink" style="font-size: 28px"> 报名成功！ </p>
+            </div>                                  
+            <button type="button" class="btn btn-default button-single font-pink">取消报名</button>
+            <p class="modal-tips text-center font-light" style="font-size:20px"> 活动开始前15分钟返回此页面可以领取咖啡券二维码 </p>
           </div>
+
           <div class="qrcode-section">
               <p class="font-pink">地点：荷塘月色咖啡</p>
               <p class="font-pink">状态：未消费</p>
