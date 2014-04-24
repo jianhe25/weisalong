@@ -25,6 +25,8 @@
 
 div.container {
   padding: 0;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #f3f3f3;
   height: 1008px;
   width: 640px;
@@ -33,6 +35,7 @@ div.container {
 .btn-primary, .btn-primary:hover {
   background-color: #d020a0;
   border-color: #d020a0;
+  color: #fff;
 }
 
 .text-primary, .text-primary:hover {

@@ -5,13 +5,13 @@
   <meta name="viewport" content='width=device-width'/>
 
   <title>个人资料</title>
-  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <script src="/static/js/base.js"></script>
-  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="/static/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
   <link href="/static/css/lib/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="/static/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/static/js/base.js"></script>
 
   <style>
     div.dropdown1 {
@@ -55,40 +55,6 @@
       height: 1100px;
     }
   </style>
-
-  <script>    
-    $(function() {
-      $("div[type=submit]").click(function() {
-        $("button[type=submit]").click();
-      });
-
-      $("li a").click(function(event) {
-        $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
-        event.preventDefault();
-      });
-
-      $.fn.datetimepicker.dates['en'] = {
-        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
-        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-        daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
-        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-        today: "今日",
-        meridiem: ["上午", "下午"],
-        suffix: [],
-      };
-
-      var getDate = function() {
-        var date = new Date();
-        date.setTime(date.getTime() + 12 * 3600 * 1000);
-        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
-      };
-
-      $('#datetimepicker').datetimepicker({
-        weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container">
@@ -210,4 +176,38 @@
 
 </body>
 </html>
+
+<script>
+  $(function() {
+    $("div[type=submit]").click(function() {
+      $("button[type=submit]").click();
+    });
+
+    $("li a").click(function(event) {
+      $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
+      event.preventDefault();
+    });
+
+    $.fn.datetimepicker.dates['en'] = {
+      days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+      daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+      daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+      months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+      monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+      today: "今日",
+      meridiem: ["上午", "下午"],
+      suffix: [],
+    };
+
+    var getDate = function() {
+      var date = new Date();
+      date.setTime(date.getTime() + 12 * 3600 * 1000);
+      return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
+    };
+
+    $('#datetimepicker').datetimepicker({
+      weekStart: 1, autoclose: 1, startView: 2, minView: 0, maxView: 2, pickerPosition: 'bottom-left', startDate: getDate(), initialDate: getDate()
+    });
+  });
+</script>
 
