@@ -1,9 +1,9 @@
 *, .form-control, .input-group-addon, .btn-primary {
  font-family: "Microsoft YaHei";
- font-size: 26px;
+ font-size: 24px;
 }
 
-.btn-primary {
+.btn-primary, .btn-default {
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -25,6 +25,8 @@
 
 div.container {
   padding: 0;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #f3f3f3;
   height: 1008px;
   width: 640px;
@@ -33,6 +35,13 @@ div.container {
 .btn-primary, .btn-primary:hover {
   background-color: #d020a0;
   border-color: #d020a0;
+  color: #fff;
+}
+
+.btn-default, .btn-default:hover {
+  border-color: #ccc;
+  background-color: #fff;
+  color: #333;
 }
 
 .text-primary, .text-primary:hover {
@@ -45,10 +54,6 @@ a, a:hover {
 
 .text-danger {
   color: #f00;
-}
-
-.col-xs-4, .col-xs-8 {
-  padding: 0;
 }
 
 .modal-dialog {

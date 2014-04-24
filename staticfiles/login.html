@@ -5,11 +5,11 @@
   <meta name="viewport" content='width=device-width'/>
 
   <title>首次认证</title>
+  <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
+  <link href="/static/css/base.css" rel="stylesheet">
   <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="/static/js/base.js"></script>
-  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
     input.form-control {
@@ -19,45 +19,12 @@
       width: 520px;
     }
   </style>
-
-  <script>
-    $(function() {
-      $("div[type=submit]").click(function() {
-        if ($.trim($("input[name=username]").val()) == "") {
-          alert("请输入学号！");
-        } else if ($.trim($("input[name=password]").val()) == "") {
-          alert("请输入密码！");
-        } else if ($.trim($("input[name=phone]").val()) == "") {
-          alert("请输入电话！");
-        } else {
-          $.post("/login/", {
-            "username": $.trim($("input[name=username]").val()),
-            "password": $.trim($("input[name=password]").val()),
-            "phone": $.trim($("input[name=phone]").val()),
-          }).done(function(data) {
-            $("div[type=submit]").html("提交").css("letter-spacing", "12px");
-            // TODO: check whether login is success or not
-            var success = true;
-            if (success) {
-              $('#success').modal();
-            } else {
-              $('#fail').modal();
-              setTimeout(function() {
-                  $('#fail').modal('hide');
-              }, 3000);
-            }
-          });
-          $("div[type=submit]").html("登录中......").css("letter-spacing", "0");
-        }
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container">
     <form action="" method="post" class="form" role="form">
       <div style="margin: 50px 70px 60px 50px;">
-        <img src="/static/img/all.png"></img>
+        <img src="/static/img/all.png" style="height: 150px; width: 505px; "></img>
       </div>
 
       <p class="form-signin-heading" style="margin-left: 70px; margin-bottom: -5px; font-weight: bold; font-size: 28px;">
@@ -73,7 +40,7 @@
       <p class="text-muted text-center" style="margin: 0 70px 60px; font-size: 18px;">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <div>
-        <img src="/static/img/tsinghua.png" style="width: 340px; margin-left: 150px;"></img>
+        <img src="/static/img/tsinghua.png" style="width: 340px; height: 60px; margin-left: 150px;"></img>
       </div>
     </form>
 
@@ -81,8 +48,8 @@
     <div id="success" class="modal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; position: relative; left: 25px; bottom: 25px">
-          <img src="/static/img/succ.png" style="width: 220px; margin: 135px 160px 35px 160px;">
+          <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; height: 50px; position: relative; left: 25px; bottom: 25px">
+          <img src="/static/img/succ.png" style="width: 220px; height: 165px; margin: 135px 160px 35px 160px;">
           <p class="text-center" style="">认证成功！</p>
           <p class="text-center">您可以
           <a class="text-primary" href="#">参加沙龙</a>
@@ -97,8 +64,8 @@
     <div id="fail" class="modal" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; position: relative; left: 25px; bottom: 25px">
-          <img src="/static/img/fail.png" style="width: 160px; margin: 120px 190px 45px 190px;">
+          <img src="/static/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; height: 50px; position: relative; left: 25px; bottom: 25px">
+          <img src="/static/img/fail.png" style="width: 160px; height: 160px; margin: 120px 190px 45px 190px;">
           <p class="text-danger text-center">认证失败！</p>
           <p class="text-muted text-center">
           您需要核对信息后再次提交
@@ -109,4 +76,37 @@
   </div>
 </body>
 </html>
+
+<script>
+  $(function() {
+    $("div[type=submit]").click(function() {
+      if ($.trim($("input[name=username]").val()) == "") {
+        alert("请输入学号！");
+      } else if ($.trim($("input[name=password]").val()) == "") {
+        alert("请输入密码！");
+      } else if ($.trim($("input[name=phone]").val()) == "") {
+        alert("请输入电话！");
+      } else {
+        $.post("/login/", {
+          "username": $.trim($("input[name=username]").val()),
+          "password": $.trim($("input[name=password]").val()),
+          "phone": $.trim($("input[name=phone]").val()),
+        }).done(function(data) {
+          $("div[type=submit]").html("提交").css("letter-spacing", "12px");
+          // TODO: check whether login is success or not
+          var success = false;
+          if (success) {
+            $('#success').modal();
+          } else {
+            $('#fail').modal();
+            setTimeout(function() {
+                $('#fail').modal('hide');
+            }, 3000);
+          }
+        });
+        $("div[type=submit]").html("登录中......").css("letter-spacing", "0");
+      }
+    });
+  });
+</script>
 

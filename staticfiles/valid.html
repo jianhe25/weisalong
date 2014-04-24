@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width">
 
   <title>有效微沙龙</title>
+  <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
+  <link href="/static/css/base.css" rel="stylesheet">
   <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="/static/js/base.js"></script>
-  <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/base.css" rel="stylesheet">
 
   <style>
     .time {
@@ -38,59 +38,47 @@
       margin-bottom: 10px;
     }
   </style>
-
-  <script>    
-    $(document).ready(function() {
-      $("div.item").click(function() {
-        $("div.title").removeClass("text-primary");
-        $("div.more").hide();
-
-        $(this).find("div.title").addClass("text-primary");
-        $(this).find("div.more").show();
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container">
     <div class="border-radius" style="margin: 10px 5px 0; padding: 10px; height: 210px;">
       <!-- for succ -->
-      <div style="border-right: 1px solid #ccc; width: 200px; height: 190px; float: left;">
-        <div>
-          <img src="/static/img/succ.png" style="margin: 30px 45px 0; width: 110px;" />
-          <div style="margin: 15px 5px 10px 40px;">消费成功！</div>
-        </div>
-        <div style="font-size: 15px; word-spacing: 15px; margin-left: 10px;">2014/04/11 18:29:34</div>
-      </div>
-      <div style="border-right: 1px solid #ccc; width: 220px; height: 190px; float: left;">
-        <div style="margin: 20px 10px 0 20px">本次消费：</div>
-        <div class="text-primary" style="font-size: 80px; padding-top: 5px; text-align: center;">¥&nbsp;20</div>
-      </div>
-      <div style="width: 185px; float: left;">
-        <div style="padding: 15px 20px;">
-          <div>累计人次：</div>
-          <div style="font-color: #000; font-weight: bold; font-size: 30px;">53人</div>
-          <div style="margin-top: 20px;">累计消费：</div>
-          <div style="font-color: #000; font-weight: bold; font-size: 30px;">¥1060</div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-
-      <!-- for fail -->
       <!-- <div style="border&#45;right: 1px solid #ccc; width: 200px; height: 190px; float: left;"> -->
       <!--   <div> -->
-      <!--     <img src="/static/img/fail.png" style="margin: 30px 55px 0 40px; width: 95px;"/> -->
-      <!--     <div style="margin: 0px 5px 10px 35px;">消费失败！</div> -->
+      <!--     <img src="/static/img/succ.png" style="margin: 30px 45px 0; width: 110px; height: 84px;" /> -->
+      <!--     <div style="margin: 15px 5px 10px 40px;">消费成功！</div> -->
       <!--   </div> -->
       <!--   <div style="font&#45;size: 15px; word&#45;spacing: 15px; margin&#45;left: 10px;">2014/04/11 18:29:34</div> -->
       <!-- </div> -->
-      <!-- <div style="width: 400px; padding: 25px 10px 20px 30px; float: left;"> -->
-      <!--   <div style="font&#45;size: 24px;">原因：</div> -->
-      <!--   <div style="font&#45;size: 22px;">您错过了微沙龙的时间。</div> -->
-      <!--   <div style="font&#45;size: 22px;">如有疑问，请致电微沙龙服务电话。</div> -->
-      <!--   <div style="font&#45;size: 22px;">400&#45;555&#45;987</div> -->
+      <!-- <div style="border&#45;right: 1px solid #ccc; width: 220px; height: 190px; float: left;"> -->
+      <!--   <div style="margin: 20px 10px 0 20px">本次消费：</div> -->
+      <!--   <div class="text&#45;primary" style="font&#45;size: 80px; padding&#45;top: 5px; text&#45;align: center;">¥&#38;nbsp;20</div> -->
+      <!-- </div> -->
+      <!-- <div style="width: 185px; float: left;"> -->
+      <!--   <div style="padding: 15px 20px;"> -->
+      <!--     <div>累计人次：</div> -->
+      <!--     <div style="font&#45;color: #000; font&#45;weight: bold; font&#45;size: 30px;">53人</div> -->
+      <!--     <div style="margin&#45;top: 20px;">累计消费：</div> -->
+      <!--     <div style="font&#45;color: #000; font&#45;weight: bold; font&#45;size: 30px;">¥1060</div> -->
+      <!--   </div> -->
       <!-- </div> -->
       <!-- <div class="clearfix"></div> -->
+
+      <!-- for fail -->
+      <div style="border-right: 1px solid #ccc; width: 200px; height: 190px; float: left;">
+        <div>
+          <img src="/static/img/fail.png" style="margin: 30px 55px 0 40px; height: 95px; width: 95px;"/>
+          <div style="margin: 0px 5px 10px 35px;">消费失败！</div>
+        </div>
+        <div style="font-size: 15px; word-spacing: 15px; margin-left: 10px;">2014/04/11 18:29:34</div>
+      </div>
+      <div style="width: 400px; padding: 25px 10px 20px 30px; float: left;">
+        <div style="font-size: 24px;">原因：</div>
+        <div style="font-size: 22px;">您错过了微沙龙的时间。</div>
+        <div style="font-size: 22px;">如有疑问，请致电微沙龙服务电话。</div>
+        <div style="font-size: 22px;">400-555-987</div>
+      </div>
+      <div class="clearfix"></div>
     </div>
 
     <div style="background-color: #fff; padding: 30px 50px;">
@@ -158,4 +146,16 @@
   </div>
 </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+    $("div.item").click(function() {
+      $("div.title").removeClass("text-primary");
+      $("div.more").hide();
+
+      $(this).find("div.title").addClass("text-primary");
+      $(this).find("div.more").show();
+    });
+  });
+</script>
 
