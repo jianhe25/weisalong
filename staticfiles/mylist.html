@@ -6,32 +6,10 @@
     <meta name="viewport" content='width=device-width'/>
     <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
     <link href="/static/css/base.css" rel="stylesheet">
-    <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="/static/js/base.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $(".button").click(function() {
-          if (!$(this).hasClass("active")) {
-            $(".button").toggleClass("active");
-          }
-        });
-        $(".icon-more").click(function() {
-            $(".more").toggleClass("hidden");
-        });
-        $(".icon-less").click(function() {
-            $(".more").addClass("hidden");
-        });
-        $(".event").click( function() {
-          $('#eventModal').modal({
-            keyboard: true
-          });
-        });
-      });
-    </script>
-    <link href="/static/css/base.css" rel="stylesheet">
     <link href="/static/css/list.css" rel="stylesheet">
+    <script src="/static/js/lib/zepto.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -235,3 +213,24 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".button").click(function() {
+      if (!$(this).hasClass("active")) {
+        $(".button").toggleClass("active");
+      }
+    });
+    $(".icon-more").click(function() {
+        $(".more").toggleClass("hidden");
+    });
+    $(".icon-less").click(function() {
+        $(".more").addClass("hidden");
+    });
+    $(".event").click( function() {
+      $('#eventModal').modal({
+        keyboard: true
+      });
+    });
+  });
+</script>

@@ -7,9 +7,9 @@
   <title>首次认证</title>
   <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
   <link href="/static/css/base.css" rel="stylesheet">
-  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="/static/js/lib/zepto.min.js"></script>
   <script src="/static/js/base.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
   <style>
     input.form-control {
@@ -91,10 +91,10 @@
           "username": $.trim($("input[name=username]").val()),
           "password": $.trim($("input[name=password]").val()),
           "phone": $.trim($("input[name=phone]").val()),
-        }).done(function(data) {
+        }, function(data) {
           $("div[type=submit]").html("提交").css("letter-spacing", "12px");
           // TODO: check whether login is success or not
-          var success = false;
+          var success = true;
           if (success) {
             $('#success').modal();
           } else {
