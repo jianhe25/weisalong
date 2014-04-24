@@ -6,45 +6,19 @@
     <meta name="viewport" content='width=device-width'/>
     <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
     <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/list.css" rel="stylesheet">
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="/static/js/base.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $(".button").click(function() {
-          if (!$(this).hasClass("active")) {
-            $(".button").toggleClass("active");
-          }
-        });
-        $(".icon-more").click(function() {
-            $(".more").toggleClass("hidden");
-        });
-        $(".icon-less").click(function() {
-            $(".more").addClass("hidden");
-        });
-        $(".event").click( function() {
-          $('#eventModal').modal({
-            keyboard: true
-          });
-        });
-        $("#modal-join").click( function() {
-          $("#modal-cancel").removeClass("hidden");
-          $("#modal-join").addClass("hidden");
-        });
-      });
-    </script>
-    <link href="/static/css/base.css" rel="stylesheet">
-    <link href="/static/css/list.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-      <!-- <div style="height: 40px; background-color:#000000"></div>
+      <!--div style="height: 40px; background-color:#000000"></div>
       <div class="box-header">
         <div class="round-box left"></div>
         <span>微沙龙列表</span>
         <div class="round-box right"></div>
-      </div> -->
+      </div -->
     <header>
       <div class="my-nav-bar">
           <div class="nav-div button active pull-left font-large">
@@ -277,3 +251,29 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".button").click(function() {
+      if (!$(this).hasClass("active")) {
+        $(".button").toggleClass("active");
+      }
+    });
+    $(".icon-more").click(function() {
+        $(".more").toggleClass("hidden");
+    });
+    $(".icon-less").click(function() {
+        $(".more").addClass("hidden");
+    });
+    $(".event").click( function() {
+      $('#eventModal').modal({
+        keyboard: true
+      });
+    });
+    $("#modal-join").click( function() {
+      $("#modal-cancel").removeClass("hidden");
+      $("#modal-join").addClass("hidden");
+    });
+  });
+</script>
+
