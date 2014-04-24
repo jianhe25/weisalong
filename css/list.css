@@ -1,4 +1,3 @@
-
 .my-nav-bar {
   margin-top: 5px;
   padding-left: 5px;
@@ -6,17 +5,18 @@
   padding-bottom: 4px;
   border-bottom: solid 1px #E5E5E5;
 }
+
 .nav-div {
-  width: 50%; 
+  width: 50%;
   height: 60px;
-  text-align: center; 
+  text-align: center;
   line-height: 60px;
-  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */     
-  border: solid 1px #E5E5E5;    
+  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */
+  border: solid 1px #E5E5E5;
 }
 
 .event {
-  margin-top: 5px;            
+  margin-top: 5px;
   background: -webkit-linear-gradient(#FFF, #E9F1F5, #FBFCFE); /* For Safari 5.1 to 6.0 */
   padding-left: 20px;
   padding-right: 20px;
@@ -29,11 +29,11 @@
   max-width: 85%;
 }
 .event > .right-column {
-  float: right;          
+  float: right;
   padding-top: 3px;
 }
-.event-title {            
-  max-height: 75px;      
+.event-title {
+  max-height: 75px;
   overflow: hidden;
   font-size: 28px;
 }
@@ -44,6 +44,7 @@
 .event-detail > img {
   width: 24px;
 }
+
 .num-circle {
   width: 55px;
 }
@@ -51,25 +52,23 @@
 .active {
   color: #FFFFFF;
   background: -webkit-linear-gradient(#E9009A, #AE0098);
-}    
-
+}
 
 .my-button {
   min-width: 48%;
 }
-.non-active {
-  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */          
-}
-.padding-left {
 
+.non-active {
+  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */
 }
-.modal-row {          
+
+.modal-row {
   border-bottom: 1px solid #CCCCCC;
   padding-bottom: 18px;
   padding-top: 18px;
 }
 span { display:inline-block; vertical-align:middle }
-      
+
 .modal-row-detail {
   color: #666666;
   font-size: 22px;
@@ -97,7 +96,7 @@ span { display:inline-block; vertical-align:middle }
 }
 
 .modal-tips {
-  margin-top: 5px; 
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
@@ -115,9 +114,9 @@ span { display:inline-block; vertical-align:middle }
   font-size: 20px;
 }
 
-.cute-title { 
-  background-color: #E2E2E2; 
-  margin: 3%; 
+.cute-title {
+  background-color: #E2E2E2;
+  margin: 3%;
   border-radius: 5px;
 }
 
@@ -126,8 +125,8 @@ span { display:inline-block; vertical-align:middle }
   margin-top: 4%;
 }
 .qrcode {
-  margin-left: 12%; 
-  width: 70%; 
+  margin-left: 12%;
+  width: 70%;
   margin-top: 13px;
 }
 p {
@@ -138,18 +137,16 @@ button.btn {
   border-radius: 8px;
 }
 
-.btn-default, .btn-default:hover {  
+.btn-default, .btn-default:hover {
   color: #C20096;
-}
-.close {
-  opacity: 1;
 }
 
 .text-hint {
-  background-color: #E2E2E2; 
-  margin-left: 5%; 
+  background-color: #E2E2E2;
+  margin-left: 5%;
   margin-right: 5%;
   margin-top: 5%;
   margin-bottom: 2%;
   border-radius: 5px;
 }
+
