@@ -87,24 +87,27 @@
       } else if ($.trim($("input[name=phone]").val()) == "") {
         alert("请输入电话！");
       } else {
-        $.post("/login/", {
-          "username": $.trim($("input[name=username]").val()),
-          "password": $.trim($("input[name=password]").val()),
-          "phone": $.trim($("input[name=phone]").val()),
-        }, function(data) {
-          $("div[type=submit]").html("提交").css("letter-spacing", "12px");
-          // TODO: check whether login is success or not
-          var success = true;
-          if (success) {
-            $('#success').modal();
-          } else {
-            $('#fail').modal();
-            setTimeout(function() {
-                $('#fail').modal('hide');
-            }, 3000);
-          }
-        });
+        /* TODO: change to real url here, after that, remove setTimeout! */
         $("div[type=submit]").html("登录中......").css("letter-spacing", "0");
+        setTimeout(function() {
+          $.post("/static/login.html", {
+            "username": $.trim($("input[name=username]").val()),
+            "password": $.trim($("input[name=password]").val()),
+            "phone": $.trim($("input[name=phone]").val()),
+          }, function(data) {
+            $("div[type=submit]").html("提交").css("letter-spacing", "12px");
+            // TODO: check whether login is success or not
+            var success = true;
+            if (success) {
+              $('#success').modal();
+            } else {
+              $('#fail').modal();
+              setTimeout(function() {
+                  $('#fail').modal('hide');
+              }, 3000);
+            }
+          });
+        }, 3000);
       }
     });
   });
