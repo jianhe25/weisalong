@@ -33,13 +33,13 @@
   padding-top: 3px;
 }
 .event-title {
-  max-height: 75px;
+  max-height: 100px;
   overflow: hidden;
-  font-size: 28px;
+  font-size: 32px;
 }
 .event-detail {
   color: #B2B2B2;
-  font-size: 20px;
+  font-size: 24px;
 }
 .event-detail > img {
   width: 24px;
@@ -71,7 +71,7 @@ span { display:inline-block; vertical-align:middle }
 
 .modal-row-detail {
   color: #666666;
-  font-size: 22px;
+  font-size: 26px;
   margin-left: 41px;
 }
 
@@ -101,7 +101,7 @@ span { display:inline-block; vertical-align:middle }
 }
 
 .icon {
-  width: 25px;
+  width: 30px;
 }
 
 .font-light {
@@ -111,7 +111,7 @@ span { display:inline-block; vertical-align:middle }
   color: #C20096;
 }
 .font-small {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .cute-title {
