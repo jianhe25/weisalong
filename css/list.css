@@ -39,10 +39,7 @@
 }
 .event-detail {
   color: #B2B2B2;
-  font-size: 24px;
-}
-.event-detail > img {
-  width: 24px;
+  font-size: 26px;
 }
 
 .num-circle {
@@ -72,7 +69,7 @@ span { display:inline-block; vertical-align:middle }
 .modal-row-detail {
   color: #666666;
   font-size: 26px;
-  margin-left: 41px;
+  margin-left: 53px;
 }
 
 .modal-content {
@@ -101,7 +98,7 @@ span { display:inline-block; vertical-align:middle }
 }
 
 .icon {
-  width: 30px;
+  width: 35px;
 }
 
 .font-light {
@@ -109,9 +106,6 @@ span { display:inline-block; vertical-align:middle }
 }
 .font-pink {
   color: #C20096;
-}
-.font-small {
-  font-size: 22px;
 }
 
 .cute-title {
