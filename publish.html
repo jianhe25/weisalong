@@ -8,8 +8,7 @@
   <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="/css/lib/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link href="/css/base.css" rel="stylesheet">
-  <script src="/js/lib/zepto.min.js"></script>
-  <script src="/js/base.js"></script>
+  <script src="/js/lib/jquery-2.1.1.min.js"></script>
   <script src="/js/lib/bootstrap.min.js"></script>
   <script src="/js/lib/bootstrap-datetimepicker.min.js"></script>
 
@@ -182,7 +181,7 @@
     });
 
     $("li a").click(function(event) {
-      $(this).parentsUntil("div").parent().find("span").html($(this).html()).removeClass("text-muted");
+      $(this).parent().parent().parent().find("span").html($(this).html()).removeClass("text-muted");
       event.preventDefault();
     });
 
