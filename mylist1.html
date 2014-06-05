@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>我的微沙龙</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content='width=device-width'/>
+
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/base1.css" rel="stylesheet">
+    <link href="/css/list1.css" rel="stylesheet">
+    <script src="/js/lib/zepto.min.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="/img/all.png" style="width: 59.4%; margin: 3.9% 21.9% 3.9% 18.8%;"/>
+    </header>
+
+    <div class="event">
+      <div class="left-column" >
+        <div class="event-title">
+          量子力学带来设计思维的革命性变革
+        </div>
+        <div class="event-detail">
+            <img src="/img/human.png" class="icon"/>
+            何剑
+            <img src="/img/clock.png" style="margin-left:6.6%" class="icon"/>
+            4月11日 18:30-20:30 星期三
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/img/circles_2.png" class="num-circle"/>
+          <div class="event-detail text-center">2/10</div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+
+
+
+    <!-- Demo to trigger modal -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">
+      Launch SalonSummary modal
+    </button>
+
+    <div class="modal" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="padding:2.3%">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; position:relative; left:5.5%; bottom:5.5%">
+            <div class="modal-row">
+              <h2 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h2>
+            </div>
+            <div class="modal-row">
+              <div>
+                <img src="/img/human.png" class="icon">
+                <span class="modal-row-title"> 发起人： 何剑 </span>
+              </div>
+              <p class="modal-row-detail">美术学院视觉传达设计系</p>
+              <p class="modal-row-detail font-light">报名后显示发起人手机</p>
+            </div>
+            <div class="modal-row">
+              <img src="/img/num_circle_gray.png" class="icon">
+              <div class="modal-row-title" style="display:inline">
+                人数： 3/9
+                <span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏 已报名</span>
+                <img class="icon icon-more" src="/img/more.png">
+              </div>
+              <div class="more hidden" style="margin-left: 7.8%;">
+                <div class="people">
+                  张光
+                  <div class="font-light">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>
+                <div class="people">
+                  张光
+                  <div class="font-light">
+                    <div class="font-small">美术学院视觉传达设计系</div>
+                    <div class="font-small">手机：18810462990</div>
+                    <div class="font-small">微信：meiranedu</div>
+                    <div class="font-small">简介：读书 设计 生活!</div>
+                  </div>
+                </div>
+                <img src="/img/less.png" class="icon icon-less">
+              </div>
+            </div>
+            <div class="modal-row">
+              <div>
+                <img src="/img/desc.png" class="icon">
+                <span class="modal-row-title">
+                  活动简介：
+                </span>
+              </div>
+              <div class="modal-row-detail">
+                只要你有这样的idea，都可以秀出来!我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
+              </div>
+            </div>
+
+            <div class="modal-row text-center cute-title">
+              <p class="font-pink" style="font-size: 4.4%"> 沙龙已结束！请提交总结:) </p>
+            </div>
+            <textarea class="form-control" rows="5" placeholder="字数不少于140字" style="margin-bottom: 2%; font-size:3.4%"></textarea>
+            <button type="button" class="btn btn-primary">提交总结</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".button").click(function() {
+      if (!$(this).hasClass("active")) {
+        $(".button").toggleClass("active");
+      }
+    });
+    $(".icon-more").click(function() {
+        $(".more").toggleClass("hidden");
+    });
+    $(".icon-less").click(function() {
+        $(".more").addClass("hidden");
+    });
+    $(".event").click( function() {
+      $('#eventModal').modal({
+        keyboard: true
+      });
+    });
+  });
+</script>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content='width=device-width'/>
+
+  <title>首次认证</title>
+  <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/base1.css" rel="stylesheet">
+  <script src="/js/lib/zepto.min.js"></script>
+  <script src="/js/lib/bootstrap.min.js"></script>
+
+  <style>
+    input.form-control {
+      padding-left: 4.7%;
+      margin-left: 9.4%;
+      margin-top: 4.7%;
+      width: 81.2%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="" method="post" class="form" role="form">
+      <div style="margin: 7.8% 10.9% 9.4% 7.8%;">
+        <img src="/img/all.png" style="width: 90%; "></img>
+      </div>
+
+      <p class="form-signin-heading" style="margin-left: 10.9%; margin-bottom: -0.8%; font-weight: bold; ">
+        微沙龙认证
+      </p>
+
+      <input type="text" name="username" class="form-control" placeholder="Info学号" required></input>
+      <input type="password" name="password" class="form-control" placeholder="Info密码" required></input>
+      <input type="text" name="phone" class="form-control" placeholder="手机号" required></input>
+
+      <div class="btn-primary" style="width: 62.5%; margin: 7.0% 18.8% 3.9%; letter-spacing: 1.9%; padding-top: 1.5%; padding-bottom: 1.5% " type="submit">提交</div>
+      <button type="submit" style="display: none"></button>
+      <p class="text-muted text-center" style="margin: 0 10.9% 6.2%; ">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
+
+      <div>
+        <img src="/img/tsinghua.png" style="width: 70.3%; margin-left: 15.6%;"></img>
+      </div>
+    </form>
+
+    <!-- login success -->
+    <div id="success" class="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; height: 7.8%; position: relative; left: 3.9%; bottom: 3.9%">
+          <img src="/img/succ.png" style="width: 34.4%; height: 25.8%; margin: 21.1% 25.0% 5.5% 25.0%;">
+          <p class="text-center" style="">认证成功！</p>
+          <p class="text-center">您可以
+          <a class="text-primary" href="#">参加沙龙</a>
+          或
+          <a class="text-primary" href="#">发起沙龙</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- login fail -->
+    <div id="fail" class="modal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; height: 7.8%; position: relative; left: 3.9%; bottom: 3.9%">
+          <img src="/img/fail.png" style="width: 25.0%; height: 25.0%; margin: 18.8% 29.7% 7.0% 29.7%;">
+          <p class="text-danger text-center">认证失败！</p>
+          <p class="text-muted text-center">
+          您需要核对信息后再次提交
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  $(function() {
+    $("div[type=submit]").click(function() {
+      if ($.trim($("input[name=username]").val()) == "") {
+        alert("请输入学号！");
+      } else if ($.trim($("input[name=password]").val()) == "") {
+        alert("请输入密码！");
+      } else if ($.trim($("input[name=phone]").val()) == "") {
+        alert("请输入电话！");
+      } else {
+        /* TODO: change to real url here, after that, remove setTimeout! */
+        $("div[type=submit]").html("登录中......").css("letter-spacing", "0");
+        setTimeout(function() {
+          $.post("/login.html", {
+            "username": $.trim($("input[name=username]").val()),
+            "password": $.trim($("input[name=password]").val()),
+            "phone": $.trim($("input[name=phone]").val()),
+          }, function(data) {
+            $("div[type=submit]").html("提交").css("letter-spacing", "1.9%");
+            // TODO: check whether login is success or not
+            var success = true;
+            if (success) {
+              $('#success').modal();
+            } else {
+              $('#fail').modal();
+              setTimeout(function() {
+                  $('#fail').modal('hide');
+              }, 3000);
+            }
+          });
+        }, 3000);
+      }
+    });
+  });
+</script>
+

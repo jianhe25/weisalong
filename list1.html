@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>学术微沙龙</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content='width=device-width'/>
+
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/base1.css" rel="stylesheet">
+    <link href="/css/list1.css" rel="stylesheet">
+    <script src="/js/lib/zepto.min.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+      <!--div style="height: 6.2%; background-color:#000000"></div>
+      <div class="box-header">
+        <div class="round-box left"></div>
+        <span>微沙龙列表</span>
+        <div class="round-box right"></div>
+      </div -->
+    <header>
+      <div class="my-nav-bar">
+          <div class="nav-div button active pull-left">
+            可报名沙龙
+          </div>
+          <div class="nav-div button pull-right">
+            已结束沙龙
+          </div>
+          <div style="clear:both"></div>
+      </div>
+    </header>
+
+    <div class="event">
+      <div class="left-column" >
+        <div class="event-title">
+          量子力学带来设计思维的革命性变革
+        </div>
+        <div class="event-detail">
+            <img src="/img/human.png" class="icon"/>
+            何剑
+            <img src="/img/clock.png" class="icon"/>
+            4月11日 18:30 - 20:30 星期三
+        </div>
+      </div>
+      <div class="right-column">
+          <img src="/img/circles_2.png" class="num-circle"/>
+          <div class="event-detail text-center" >2/10</div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+
+
+    <!-- Demo to trigger modal -->
+    <!--
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">
+      Launch SalonSummary modal
+    </button> -->
+    <div class="modal" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="padding:2.3%">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; position:relative; left:5.5%; bottom:5.5%">
+          <div class="modal-row">
+            <h1 class="modal-title" id="myModalLabel">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h1>
+          </div>
+
+          <div class="modal-row">
+              <img src="/img/id.png" class="icon">
+              <span class="modal-row-title"> 编号: 097  </span>
+              <button class="btn btn-default font-pink" style="margin-left: 3%;"> 分享给好友/朋友圈 </button>
+          </div>
+          <div class="modal-row">
+            <img src="/img/clock.png" class="icon">
+            <span class="modal-row-title"> 4月11日 18:30 - 20:30 </span>
+          </div>
+          <div class="modal-row">
+            <div>
+              <img src="/img/place.png" class="icon">
+              <span class="modal-row-title"> 荷塘月色咖啡厅 </span>
+            </div>
+            <p class="modal-row-detail"> 清华大学东门外 荷塘路8号楼 近春园岛上 轩榭亭东首 </p>
+          </div>
+
+          <div class="modal-row">
+            <div>
+              <img src="/img/human.png" class="icon">
+              <span class="modal-row-title"> 发起人: 何剑 </span>
+            </div>
+            <p class="modal-row-detail">美术学院视觉传达设计系</p>
+            <p class="modal-row-detail font-light">报名后显示发起人手机</p>
+          </div>
+          <div class="modal-row">
+            <img src="/img/num_circle_gray.png" class="icon">
+            <div class="modal-row-title" style="display:inline">
+              人数: 3/9
+              <span class="modal-row-detail" style="margin-left:0"> 张光 李晶 王明敏已报名</span>
+              <img src="/img/more.png" class="icon icon-more">
+            </div>
+            <div class="more hidden" style="margin-left: 7.8%;">
+              <div class="people">
+                张光
+                <div class="text-muted">
+                  <p>美术学院视觉传达设计系</p>
+                  <p>手机：18810462990</p>
+                  <p>微信：meiranedu</p>
+                  <p>简介：读书 设计 生活!</p>
+                </div>
+              </div>
+              <div class="people">
+                张光
+                <div class="text-muted">
+                  <p>美术学院视觉传达设计系</p>
+                  <p>手机：18810462990</p>
+                  <p>微信：meiranedu</p>
+                  <p>简介：读书 设计 生活!</p>
+                </div>
+              </div>
+              <img src="/img/less.png" class="icon icon-less">
+            </div>
+          </div>
+          <div class="modal-row">
+            <div>
+              <img src="/img/desc.png">
+              <span class="modal-row-title">活动简介:</span>
+            </div>
+            <p class="modal-row-detail">
+              只要你有这样的idea，都可以秀出来！我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
+            </p>
+          </div>
+          <!-- Can switch two class by toggleClass(hidden) -->
+
+
+          <button id="modal-join" type="button" class="btn btn-primary button-single" style="margin-top:3.1%;">我要参加</button>
+
+          <div id="modal-cancel" class="hidden">
+            <div class="text-center text-hint" style="height : 9.4%; line-height: 9.4%">
+              <p class="font-pink"> 报名成功！ </p>
+            </div>
+            <button type="button" class="btn btn-default button-single font-pink">取消报名</button>
+            <p class="modal-tips text-center font-light"> 活动开始前15分钟返回此页面可以领取咖啡券二维码 </p>
+          </div>
+
+          <div class="qrcode-section">
+              <p class="font-pink">地点：荷塘月色咖啡</p>
+              <p class="font-pink">状态：未消费</p>
+              <p class="font-pink">使用时段：4月11日 18:30 - 20:30</p>
+              <p>1. 显示二维码后无法取消活动</p>
+              <p>2. 请在消费时向服务员出示，由服务员扫描可抵用相应金额</p>
+              <p>3. 每个二维码只可扫描一次</p>
+              <img src="/img/qrcode.png" class="qrcode">
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".button").click(function() {
+      if (!$(this).hasClass("active")) {
+        $(".button").toggleClass("active");
+      }
+    });
+    $(".icon-more").click(function() {
+        $(".more").toggleClass("hidden");
+    });
+    $(".icon-less").click(function() {
+        $(".more").addClass("hidden");
+    });
+    $(".event").click( function() {
+      $('#eventModal').modal({
+        keyboard: true
+      });
+    });
+    $("#modal-join").click( function() {
+      $("#modal-cancel").removeClass("hidden");
+      $("#modal-join").addClass("hidden");
+    });
+  });
+</script>
+
