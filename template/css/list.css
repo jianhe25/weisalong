@@ -1,0 +1,149 @@
+.my-nav-bar {
+  margin-top: 0.8%;
+  padding-left: 0.8%;
+  padding-right: 0.8%;
+  padding-bottom: 0.6%;
+  border-bottom: solid 2px #E5E5E5;
+}
+
+.nav-div {
+  width: 50%;
+  height: 10%;
+  font-size: 20px;
+  text-align: center;
+  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */
+  border: solid 2px #E5E5E5;
+}
+
+.event {
+  margin-top: 0.8%;
+  background: -webkit-linear-gradient(#FFF, #E9F1F5, #FBFCFE); /* For Safari 5.1 to 6.0 */
+  padding-left: 3.1%;
+  padding-right: 3.1%;
+  padding-bottom: 2.8%;
+  padding-top: 2.8%;
+  border-bottom: solid 2px #E5E5E5;
+}
+.event > .left-column {
+  float: left;
+  max-width: 85%;
+}
+.event > .right-column {
+  float: right;
+  padding-top: 0.5%;
+}
+.event-title {
+  max-height: 15.6%;
+  overflow: hidden;
+  font-size: 20px;
+}
+.event-detail {
+  color: #B2B2B2;
+  font-size: 16px;
+}
+
+.num-circle {
+  width: 70%;
+}
+
+.active {
+  color: #FFFFFF;
+  background: -webkit-linear-gradient(#E9009A, #AE0098);
+}
+
+.my-button {
+  min-width: 48%;
+}
+
+.non-active {
+  background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */
+}
+
+.modal-row {
+  border-bottom: 2px solid #CCCCCC;
+  padding-bottom: 2.8%;
+  padding-top: 2.8%;
+}
+span { display:inline-block; vertical-align:middle }
+
+.modal-row-detail {
+  color: #666666;
+  font-size: 16px;
+  margin-left: 8.3%;
+}
+
+.modal-content {
+  background-color: #F3F3F3;
+}
+.modal-body {
+  padding-top: 0.0%;
+}
+.modal-row-title {
+  margin-left: 1.6%;
+}
+.button-single {
+  margin-left: 5%;
+  width: 90%;
+  height: 9.4%;
+}
+
+.button-half {
+  width: 45%;
+  height: 9.4%;
+}
+
+.modal-tips {
+  margin-top: 0.8%;
+  margin-bottom: 0.8%;
+}
+
+.icon {
+  width: 5.5%;
+}
+
+.font-light {
+  color: #BABABA;
+}
+.font-pink {
+  color: #C20096;
+}
+
+.cute-title {
+  background-color: #E2E2E2;
+  margin: 3%;
+  border-radius: 2px;
+}
+
+.qrcode-section {
+  margin-left: 4.4%;
+  margin-top: 4%;
+}
+.qrcode {
+  margin-left: 12%;
+  width: 70%;
+  margin-top: 2.0%;
+}
+p {
+  margin: 0.0%;
+}
+button.btn {
+  font-size: 16px;
+  border-radius:3px; 
+}
+
+.btn-default, .btn-default:hover {
+  color: #C20096;
+}
+
+.text-hint {
+  background-color: #E2E2E2;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border-radius: 0.8%;
+}
+
+.people-detail > p {
+  font-size: 16px;
+}

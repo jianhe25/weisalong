@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{{title}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content='width=device-width'/>
+<link href="css/lib/bootstrap.min.css" rel="stylesheet">
+<!--<link rel="stylesheet" href="http://lib.sinaapp.com/js/bootstrap/3.0.0/css/bootstrap.min.css"/>-->
+<link href="css/base.css" rel="stylesheet">
+<link href="css/list.css" rel="stylesheet">
+<script src="js/jquery-1.11.0.min.js"></script>
+<!--<script src="js/lib/zepto.min.js"></script>-->
+<!--<script src="js/base.js"></script>-->
+<script src="js/lib/bootstrap.min.js"></script>
+<!--<script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>-->
+<!--<script src="http://lib.sinaapp.com/js/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
+<script src="js/qrcode.min.js"></script>
+
+<script type="text/javascript">
+    console.log('here');
+    $('head').find("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=' + $(window).width() / 640 + ', maximum-scale=' + $(window).width() / 640 + ', minimum-scale=' + $(window).width() / 640 + ', user-scalable=0');
+    $(document).ready(function () {
+        $(".button").click(function () {
+            if (!$(this).hasClass("active")) {
+                $(".button").toggleClass("active");
+            }
+        });
+//        $(".icon-more").click(function () {
+//            $(".more").toggleClass("hidden");
+//        });
+//        $(".icon-less").click(function () {
+//            $(".more").addClass("hidden");
+//        });
+    });
+</script>
+<script>
+var appId, imgUrl, link, title, desc;
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+        prepareShare();
+        WeixinJSBridge.invoke('sendAppMessage', {
+            "appid": appId,
+            "img_url": imgUrl,
+            "img_width": "640",
+            "img_height": "640",
+            "link": link, //TODO: add recog params
+            "desc": desc,
+            "title": title
+        }, function (res) {
+        });
+    });
+
+    WeixinJSBridge.on('menu:share:timeline', function (argv) {
+        prepareShare();
+        WeixinJSBridge.invoke('shareTimeline', {
+            "img_url": imgUrl,
+            "img_width": "640",
+            "img_height": "640",
+            "link": link, // TODO: add recog params
+            "desc": desc,
+            "title": title
+        }, function (res) {
+        });
+    });
+
+    WeixinJSBridge.on('menu:share:weibo', function (argv) {
+        prepareShare();
+        WeixinJSBridge.invoke('shareWeibo', {
+            "content": desc,
+            "url": link
+        }, function (res) {
+        });
+    });
+});
+var eventAnchor = '';
+function prepareShare() {
+    appId = '';
+    imgUrl = window.location.href.replace(/[^\/]*$/, '') + "img/thu.jpg";
+    link = window.location.href.replace(/[^\/]*$/, '') + 'pendingEvents' + eventAnchor;
+    title = "清小研 - 微沙龙";
+    desc = "微沙龙简介";
+    if (eventAnchor) {
+        title = "微沙龙 - " + $(eventAnchor).data('topic');
+        desc = "简介：" + $(eventAnchor).data('abstract');
+    }
+}
+function toast(msg) {
+    $('#message').html(msg).fadeIn();
+    setTimeout(function () {
+        $('#message').fadeOut();
+    }, 3000);
+}
+Date.prototype.Format = function (fmt) { //author: meizz
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "w": this.getDay(),
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+};
+$(function () {
+    var qrcodedraw = new QRCodeLib.QRCodeDraw();
+    $(".event").click(function () {
+        var $e = $(this);
+        eventAnchor = '#' + $e.attr('id');
+        var eventId = $e.data('id');
+        // TODO: new form datetimes
+
+        $('#modal-id').text($e.data('id'));
+        $('#modal-topic').text($e.data('topic'));
+        $('#modal-abstract').text($e.data('abstract'));
+        $('#modal-datetime').text($e.find('#event-datetime').text());
+        $('#modal-venue').text($e.data('venue'));
+        if ($e.data('venue').indexOf('独峰书院')>-1) {
+            $('#modal-venue-detail').text('清华大学 独峰书院旁（紫日金利文具店楼上）营业时间：10:00 - 21:00');
+        } else if ($e.data('venue').indexOf('荷塘月色')>-1) {
+            $('#modal-venue-detail').text('校医院东侧 荷塘小岛中央 24小时营业');
+        }
+//        $('#modal-pQuota').text($e.find('#event-pQuota').text());
+        updatePQuota();
+        $('#modal-coupon-venue').text($e.data('venue'));
+        if ($e.data('coupon-used')) {
+            $('#modal-coupon-status').text('已扫码');
+        } else {
+            $('#modal-coupon-status').text('未扫码');
+        }
+        $('#modal-coupon-datetime').text($e.find('#event-datetime').text());
+
+        var userId = $('#cData').data('userid');
+        var participated = false;
+        var $part = $('#modal-participants');
+        try {
+            $part.find('.people').slice(1).remove();
+            var $template = $part.find('.people').eq(0);
+            var ps = $e.data('participants');
+            for (var i = 0; i < ps.length; ++i) {
+                if (ps[i].id == userId)
+                    participated = true;
+            }
+
+            for (var i = 0; i < ps.length; ++i)
+                if (ps[i].id != $e.data('starter-id')) {
+                    $template.find('.modal-pName').text(ps[i].name);
+                    $template.find('.modal-pDept').text(ps[i].dept);
+                    $template.find('.modal-pMobile').text(ps[i].mobile);
+                    var $t = $template.clone();
+                    $t.removeClass('hidden');
+                    $part.append($t);
+                } else {
+                    $('#modal-starter-name').text(ps[i].name);
+                    $('#modal-starter-dept').text(ps[i].dept);
+                    $('#modal-starter-mobile').text(ps[i].mobile);
+                }
+
+            if (userId && participated) {
+                $('#modal-starter').removeClass('hidden');
+                if ($e.data('starter-id') == userId) {
+                    $part.removeClass('hidden');
+                } else {
+                    $part.addClass('hidden');
+                }
+            } else {
+                $('#modal-starter').addClass('hidden');
+                $part.addClass('hidden');
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        var datetime = $e.data('datetime');
+        var duration = $e.data('duration');
+        var now = new Date().getTime();
+        if (now < datetime - 15 * 60 * 1000) {
+            if (userId) {
+                if (participated) {
+                    $('#modal-status').addClass('hidden');
+                    $('#modal-cancel').removeClass('hidden');
+                    $('#modal-join').addClass('hidden');
+                } else {
+                    $('#modal-status').addClass('hidden');
+                    $('#modal-cancel').addClass('hidden');
+                    if (($e.data('pnum') - 1) < $e.data('quota'))
+                        $('#modal-join').removeClass('hidden');
+                    else $('#modal-join').addClass('hidden');
+                }
+                if (userId == $e.data('starter-id'))
+                    $('#modal-cancel').addClass('hidden');
+            } else {
+                $('#modal-status').text('关注公众号"xiaoyanthu"，输入@' + eventId + '可报名此活动').removeClass('hidden');
+                $('#modal-join').addClass('hidden');
+                $('#modal-cancel').addClass('hidden');
+            }
+            $('#modal-qrcode').addClass('hidden');
+            $('#modal-comment').addClass('hidden');
+        } else if (now < datetime + duration) {
+            $('#modal-join').addClass('hidden');
+            $('#modal-cancel').addClass('hidden');
+
+            if (participated) {
+                if ($e.data('participants').length >= 3) {
+                    $('#modal-status').addClass('hidden');
+                    $('#modal-qrcode').removeClass('hidden');
+                    var url = window.location.href.replace(/[^\/]*$/, '') + 'coupon?code=' + $e.data('coupon-code');
+                    console.log(url);
+                    qrcodedraw.draw($('#modal-coupon-canvas').get(0), url, function (error, canvas) {
+                        if (error) {
+                            toast(error);
+                        }
+                    });
+                } else {
+                    $('#modal-status').text('活动人数不足3人，自动取消').removeClass('hidden');
+                    $('#modal-qrcode').addClass('hidden');
+                }
+            } else {
+                $('#modal-status').text('活动正在进行中').removeClass('hidden');
+                $('#modal-qrcode').addClass('hidden');
+            }
+            $('#modal-comment').addClass('hidden');
+        } else {
+            $('#modal-status').text('活动已结束').removeClass('hidden');
+            $('#modal-join').addClass('hidden');
+            $('#modal-cancel').addClass('hidden');
+            $('#modal-qrcode').addClass('hidden');
+
+            if ($e.data('coupon-used')) {
+                if ($e.data('coupon-comment')) {
+                    $('#modal-status').append('<p>总结：' + $e.data('coupon-comment') + '</p>');
+                    $('#modal-comment').addClass('hidden');
+                } else {
+                    $('#modal-comment').removeClass('hidden');
+                }
+            } else {
+                $('#modal-comment').addClass('hidden');
+            }
+        }
+
+        $('#eventModal').modal({
+            keyboard: true
+        });
+    });
+
+    updatePQuota = function () {
+        var $e = $(eventAnchor);
+        $e.find('#event-pQuota').text(($e.data('pnum') - 1) + '/' + $e.data('quota'));
+        $e.find('#event-circle').attr('src', 'img/circles_' + Math.min(10, Math.round(($e.data('pnum') - 1) / $e.data('quota') * 10)) + '.png');
+        if (eventAnchor == '#event' + $('#modal-id').text()) {
+            $('#modal-pQuota').text(($e.data('pnum') - 1) + '/' + $e.data('quota'));
+        }
+    };
+
+    $('#modal-join').click(function (e) {
+        var $elem = $(this);
+        var eventId = eventAnchor.substr('#event'.length);
+        $.ajax({
+            type: 'POST',
+            url: 'event/' + eventId + window.location.search,
+            data: {act: 'participate'},
+            success: function (data) {
+                if (data.status == 'success') {
+                    window.location.hash = eventAnchor;
+                    window.location.reload();
+                    $('#modal-cancel').removeClass('hidden');
+                    $('#modal-join').addClass('hidden');
+                    $(eventAnchor).data('pnum', $(eventAnchor).data('pnum') + 1);
+                    updatePQuota();
+                } else if (data.status == 'failed') {
+                    toast(data.msg);
+                }
+            }
+        });
+    });
+    $('#modal-cancel>button').click(function (e) {
+        var $elem = $(this);
+        var eventId = eventAnchor.substr('#event'.length);
+        $.ajax({
+            type: 'POST',
+            url: 'event/' + eventId + window.location.search,
+            data: {act: 'dropout'},
+            success: function (data) {
+                if (data.status == 'success') {
+                    window.location.hash = eventAnchor;
+                    window.location.reload();
+                    $('#modal-cancel').addClass('hidden');
+                    $('#modal-join').removeClass('hidden');
+                    $(eventAnchor).data('pnum', $(eventAnchor).data('pnum') - 1);
+                    updatePQuota();
+                } else if (data.status == 'failed') {
+                    toast(data.msg);
+                }
+            }
+        });
+    });
+
+    $('#modal-comment>button').click(function (e) {
+        var $elem = $(this);
+        var eventId = eventAnchor.substr('#event'.length);
+        var comment = $elem.siblings('textarea').val();
+        $.ajax({
+            type: 'POST',
+            url: 'event/' + eventId + window.location.search,
+            data: {act: 'comment', comment: comment},
+            success: function (data) {
+                toast(data.msg);
+                if (data.status == 'success') {
+                    window.location.hash = eventAnchor;
+                    window.location.reload();
+                    $('#modal-status').append('<p>总结：' + comment + '</p>');
+                    $elem.parent().addClass('hidden');
+                } else if (data.status == 'failed') {
+                    toast(data.msg);
+                }
+            }
+        });
+    });
+    $('#modal-shareGuide').click(function (e) {
+        $('#shareGuide').show();
+        return false;
+    });
+    $('#shareGuide').click(function (e) {
+        $('#shareGuide').hide();
+    });
+    $('#pendingEvents').click(function (e) {
+        window.location.href = window.location.href.substr(0, window.location.href.lastIndexOf('/')) + '/pendingEvents';
+        return false;
+    });
+    $('#pastEvents').click(function (e) {
+        window.location.href = window.location.href.substr(0, window.location.href.lastIndexOf('/')) + '/pastEvents';
+        return false;
+    });
+    var $events = $('.event');
+    for (var i = 0; i < $events.length; ++i) {
+        var $e = $events.eq(i);
+        var starterId = $e.data('starter-id');
+        var ps = $e.data('participants');
+        for (var j = 0; j < ps.length; ++j) {
+            if (ps[j].id == starterId) {
+                $e.find('#event-starter').text(ps[j].name);
+                break;
+            }
+        }
+
+        if ($e.data('coupon-used') && !$e.data('coupon-comment')) {
+            $e.find('#event-topic').text($e.find('#event-topic').text() + '（未总结）').css('color', 'red');
+        }
+        $e.find('#event-circle').attr('src', 'img/circles_' + Math.min(10, Math.round(($e.data('pnum') - 1) / $e.data('quota') * 10)) + '.png');
+        var t = $e.data('datetime');
+        $e.find('#event-datetime').text(new Date(t).Format("M月d日 h:mm") + '-' + new Date(t + $e.data('duration')).Format("h:mm"));
+    }
+
+    $(window.location.hash).trigger('click');
+    eventAnchor = window.location.hash;
+});
+</script>
+</head>
+<body>
+<div class="container">
+    {% if titleBar != 'noBar' %}
+    <header>
+        <div class="my-nav-bar">
+            <div id="pendingEvents"
+                 class="nav-div button {% if titleBar == 'pending'%}active{% endif %} pull-left">
+                可报名沙龙
+            </div>
+            <div id="pastEvents"
+                 class="nav-div button  {% if titleBar == 'past'%}active{% endif %} pull-right">
+                已经结束沙龙
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </header>
+    {% endif %}
+
+    <div id="cData" class="hidden" data-userid="{{userId}}"></div>
+    {% if events.length>0 %}
+    {% for i, event in events %}
+    <div class="event"
+         id="event{{ event.id }}"
+         data-id="{{ event.id }}"
+         data-topic="{{ event.topic||'...' }}"
+         data-abstract="{{ event.abstract }}"
+         data-datetime="{{event.datetime}}"
+         data-duration="{{event.duration}}"
+         data-venue="{{event.venueName}}"
+         data-starter-id="{{event.starter}}"
+         data-participants="{{event.participants}}"
+         data-pnum="{{event.pNum}}"
+         data-quota="{{event.quota}}"
+    {% if event.code != null %}
+    data-coupon-code="{{event.code}}"
+    data-coupon-used="{{event.used}}"
+    data-coupon-comment="{{event.comment}}"
+    {% endif %}
+    >
+    <div class="left-column">
+        <div id="event-topic" class="event-title">
+            {{ event.topic||'...' }}
+        </div>
+        <div class="event-detail">
+            <img src="img/human.png" class="icon"/>
+            <span id="event-starter" class="font-small">{{ event.infoId }}</span>
+            <img src="img/clock.png" class="icon"/>
+                <span id="event-datetime"
+                      class="font-small">{{ (event.datetime+8*60*60*1000)|date('n月d日 G:i') }}</span>
+            <!--4月11日 18:30 - 20:30 星期三-->
+        </div>
+    </div>
+    <div class="right-column">
+        <img id="event-circle" src="img/circles_2.png" class="num-circle"/>
+
+        <div id="event-pQuota" class="event-detail text-center" style="font-size:28px">{{ event.pNum-1 }}/{{
+            event.quota }}
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+{% endfor %}
+{% else %}
+<script>
+    $(function () {
+        $('#message').html('还没有微沙龙<br>点<a href="start" style="font-size:40px;">这里</a>发起一个吧').fadeIn();
+    });
+</script>
+{% endif %}
+<!-- Demo to trigger modal -->
+<!--
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">
+  Launch SalonSummary modal
+</button> -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="modal-topic"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="padding:3%">
+            <img src="img/cancel.png" data-dismiss="modal" class="pull-right close"
+                 style="width: 15%; position:relative; left:10%; bottom:20px">
+
+            <div class="modal-row">
+                <h1 id="modal-topic" class="modal-title">关于高雅艺术进校园的一些思考和如何提高自己的艺术修养</h1>
+            </div>
+            <div class="modal-row">
+                <img src="img/id.png" class="icon">
+                <span class="modal-row-title"> 编号: &nbsp; </span><span id="modal-id">097</span>
+                <button id="modal-shareGuide" class="btn btn-default font-pink" style="margin-left: 3%;"> 分享给好友/朋友圈
+                </button>
+            </div>
+            <div class="modal-row">
+                <img src="img/clock.png" class="icon">
+                <span id="modal-datetime" class="modal-row-title"> 4月11日 18:30 - 20:30 </span>
+            </div>
+            <div class="modal-row">
+                <div>
+                    <img src="img/place.png" class="icon">
+                    <span id="modal-venue" class="modal-row-title"> 独峰书院咖啡厅 </span>
+                </div>
+                <p id="modal-venue-detail" class="modal-row-detail"> 清华大学 独峰书院旁（紫日金利文具店楼上）营业时间：10:00 - 21:00</p>
+            </div>
+
+            <div id="modal-starter" class="modal-row">
+                <div>
+                    <img src="img/human.png" class="icon">
+                    <span class="modal-row-title"> 发起人: &nbsp; </span><span id="modal-starter-name">何剑</span>
+                </div>
+                <p id="modal-starter-dept" class="modal-row-detail">美术学院视觉传达设计系</p>
+
+                <p id="modal-starter-mobile" class="modal-row-detail font-light">报名后显示发起人手机</p>
+            </div>
+            <div class="modal-row">
+                <img src="img/num_circle_gray.png" class="icon">
+
+                <div class="modal-row-title" style="display:inline">
+                    <span>报名人数: &nbsp;</span><span id="modal-pQuota">3/9</span>
+                    <!--<span class="modal-row-detail" style="margin-left: 5%"> 张光 李晶 王明敏已报名</span>-->
+                    <!--<img src="img/more.png" class="icon icon-more">-->
+                </div>
+                <div id="modal-participants" class="more" style="margin-left: 50px;">
+                    <div class="people hidden">
+                        <span class="modal-pName">张光</span>
+
+                        <div class="text-muted">
+                            <p class="modal-pDept font-small">美术学院视觉传达设计系</p>
+                            <p class="font-small"><span class="modal-pMobile">18810462990</span></p>
+                        </div>
+                    </div>
+                    <!--<img src="img/less.png" class="icon icon-less">-->
+                </div>
+            </div>
+            <div class="modal-row">
+                <div>
+                    <img src="img/desc.png">
+                    <span class="modal-row-title">活动简介:</span>
+                </div>
+                <p id="modal-abstract" class="modal-row-detail">
+                    只要你有这样的idea，都可以秀出来！我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
+                </p>
+            </div>
+
+            <div id="modal-status" class="modal-row text-center cute-title font-pink" style="font-size: 24px">
+                沙龙已结束！请提交总结:)
+            </div>
+
+            <button id="modal-join" type="button" class="btn btn-primary button-single" style="margin-top:20px;">
+                我要参加
+            </button>
+
+            <div id="modal-cancel" class="hidden">
+                <div class="text-center text-hint" style="height : 60px; line-height: 60px">
+                    <p class="font-pink"> 已报名成功 </p>
+                </div>
+                <button type="button" class="btn btn-default button-single font-pink">取消报名</button>
+                <p class="modal-tips text-center font-light" style="font-size:20px"> 活动开始前15分钟返回此页面可以领取咖啡券二维码 </p>
+            </div>
+
+            <div id="modal-qrcode" class="qrcode-section">
+                <div class="font-pink"><span>地点：</span><span id="modal-coupon-venue">独峰书院咖啡厅</span></div>
+                <div class="font-pink"><span>状态：</span><span id="modal-coupon-status">未扫码</span></div>
+                <div class="font-pink"><span>使用时段：</span><span id="modal-coupon-datetime">4月11日 18:30 - 20:30</span>
+                </div>
+                <p>由服务员扫描后可抵用20元</p>
+                <canvas id="modal-coupon-canvas" class="qrcode"></canvas>
+            </div>
+
+            <div id="modal-comment">
+                <textarea class="form-control" rows="5" placeholder="字数不少于140字"
+                          style="margin-bottom: 2%;"></textarea>
+                <button type="button" class="btn btn-primary">提交总结</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="message"
+     style="background-color: wheat; display:none; position: fixed; bottom: 36px; left: 0;right: 0;z-index: 1100;font-size: 30px;text-align: center;color: red;"></div>
+</body>
+<div id="shareGuide" style="display: none;">
+    <div style="z-index:8000;opacity: 0.7;background-color: #000; display: block;position: fixed;left: 0;top: 0; right:0; bottom:0;"></div>
+    <div style="z-index:9000; display: block; position: fixed; top:5px; right:8px;" id="guide">
+        <div><img style="width: 260px;height: 180px;" src="img/guide.png"></div>
+        <div>
+            <button class="btn" style="width: 100%; margin: 50px 0px 15px; padding: 8px 0; opacity: 0.6;">关闭此提示</button>
+        </div>
+    </div>
+</div>
+</html>

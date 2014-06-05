@@ -1,0 +1,94 @@
+*, .btn-primary {
+ font-family: "Microsoft YaHei";
+ font-size: 20px;
+}
+.font-middle, .form-control, .input-group-addon {
+  font-size:16px;
+}
+
+.font-small {
+  font-size: 12px;
+}
+
+.btn-primary, .btn-default {
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.input-group-addon {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.input-group {
+  height: 10.9%;
+}
+
+div.container {
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f3f3f3;
+}
+
+.text-primary, .text-primary:hover, a, a:hover {
+  color: #d020a0;
+}
+
+.btn-primary, .btn-primary:hover {
+  background-color: #d020a0;
+  border-color: #d020a0;
+  color: #fff;
+}
+
+.btn-default, .btn-default:hover {
+  border-color: #ccc;
+  background-color: #fff;
+  color: #333;
+}
+
+.text-danger {
+  color: #f00;
+}
+
+.modal-dialog {
+  width: 84.4%;
+  position: relative;
+  margin: auto;
+  margin-top: 7.8%;
+}
+
+.modal-dialog > div {
+  min-height: 84.4%;
+}
+
+textarea {
+  resize: none;
+}
+
+.border-none {
+  border: none;
+}
+
+.border-radius {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.people {
+  margin-top: 3%;
+}
+
+.close {
+  opacity: 1;
+}
+
+.icon {
+  width: 20px;
+}
+
