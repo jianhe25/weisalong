@@ -10,7 +10,6 @@
   <link href="/css/base.css" rel="stylesheet">
   <script src="/js/lib/zepto.min.js"></script>
   <script src="/js/base.js"></script>
-  <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
   <script src="/js/lib/bootstrap.min.js"></script>
   <script src="/js/lib/bootstrap-datetimepicker.min.js"></script>
 
@@ -28,64 +27,61 @@
     }
 
     div.input-group {
-      margin: 0 60px 20px;
+      margin: 0 6.4% 3.1%;
     }
 
     .bootstrap-datetimepicker-widget {
-      width: 305px;
+      width: 85px;
     }
 
     td, td span {
-      font-size: 18px;
+      font-size: 12px;
     }
 
     .table-condensed {
-      width: 500px;
+      width: 200px; 
     }
 
     .table-condensed>tbody>tr>td {
-      padding: 20px;
+      padding: 10px;
     }
 
     .table-condensed>tbody>tr>td span {
-      height: 30px;
-      margin-top: 25px;
+      height: 10px;
+      margin-top: 10px;
     }
 
-    div.container {
-      height: 1100px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <form action="" method="post" class="form" role="form">
-      <div style="margin: 50px 70px 60px 50px;">
-        <img src="/img/all.png" style="height: 150px; width: 505px; "></img>
+      <div style="margin: 7.8% 10.9% 9.4% 15.8%;">
+        <img src="/img/all.png" style="width: 85%"></img>
       </div>
       <div class="input-group">
         <span class="input-group-addon">
-          <img src="/img/subject.png" style="width: 28px; height: 24px;"/>
+          <img src="/img/subject.png" class="icon"/>
         </span>
         <input type="text" class="form-control" placeholder="微沙龙主题 建议35字以内">
       </div>
 
       <div id="datetimepicker" class="input-group date form_datetime" data-date-format="yyyy/mm/dd - hh:ii p">
         <span class="input-group-addon">
-          <img src="/img/clock.png" style="width: 28px; height: 24px;"/>
+          <img src="/img/clock.png" class="icon"/>
         </span>
         <input type="text" class="form-control" placeholder="起始时间（至少12小时后）" readonly>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="margin-right: 10px; margin-bottom: 5px;">设置</span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar font-middle">设置</span></span>
       </div>
 
       <div class="dropdown dropdown1 input-group">
         <span class="input-group-addon">
-          <img src="/img/clock.png" style="width: 28px; height: 24px;"/>
+          <img src="/img/clock.png" class="icon"/>
         </span>
-        <div class="form-control" style="padding-top: 18px;">
+        <div class="form-control">
           <div data-toggle="dropdown">
-            <span class="text-muted">持续时间</span>
-            <img src="/img/arrow.png" class="pull-right" style="width: 65px; height: 68px; margin-right: -12px; margin-top: -18px;"/>
+            <span class="text-muted font-middle">持续时间</span>
+            <img src="/img/arrow.png" class="pull-right" style="width: 10.4%; margin-right: -3%; margin-top: -1%;"/>
           </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">30分钟</a></li>
@@ -99,14 +95,15 @@
           </ul>
         </div>
       </div>
+
       <div class="dropdown dropdown2 input-group">
         <span class="input-group-addon">
-          <img src="/img/place.png" style="width: 28px; height: 24px;"/>
+          <img src="/img/place.png" class="icon"/>
         </span>
-        <div class="form-control" style="padding-top: 18px;">
+        <div class="form-control">
           <div data-toggle="dropdown">
-            <span class="text-muted">所有地点（共7家可选）</span>
-            <img src="/img/arrow.png" class="pull-right" style="width: 65px; height: 68px; margin-right: -12px; margin-top: -18px;"/>
+            <span class="text-muted font-middle">所有地点（共7家可选）</span>
+            <img src="/img/arrow.png" class="pull-right" style="width: 10.4%; margin-right: -3%; margin-top: -1%;"/>
           </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">荷塘月色咖啡1</a></li>
@@ -121,12 +118,12 @@
       </div>
       <div class="dropdown dropdown3 input-group">
         <span class="input-group-addon">
-          <img src="/img/num_circle_gray.png" style="width: 28px; height: 24px;"/>
+          <img src="/img/num_circle_gray.png" class="icon"/>
         </span>
-        <div class="form-control" style="padding-top: 18px;">
+        <div class="form-control">
           <div data-toggle="dropdown">
-            <span class="text-muted">参与人数（3-7人）</span>
-            <img src="/img/arrow.png" class="pull-right" style="width: 65px; height: 68px; margin-right: -12px; margin-top: -18px;"/>
+            <span class="text-muted font-middle">参与人数（3-7人）</span>
+            <img src="/img/arrow.png" class="pull-right" style="width: 10.4%; margin-right: -3%; margin-top: -1%;"/>
           </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li role="presentation"><a role="menuitem">3</a></li>
@@ -137,17 +134,17 @@
           </ul>
         </div>
       </div>
-      <div class="input-group border-radius" style="width: 520px;">
-        <div class="form-control border-none" style="padding-top: 18px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-          <img src="/img/desc.png"></img>
-          <span style="margin-left: 22px;">微沙龙简介</span>
-        </div>
-        <textarea class="form-control border-none" rows="5" placeholder="请输入微沙龙的介绍" style="font-size: 28px; height: 210px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0;"></textarea>
+      <div class="input-group border-radius" style="width: 88%;">
+      <div class="form-control border-none" style="border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+        <img src="/img/desc.png" class="icon"></img>
+        <span class="font-middle" style="margin-left: 3.4%;">微沙龙简介</span>
       </div>
-      <div class="text-muted" style="margin: 0 0 30px 70px; font-size: 18px;">
+      <textarea class="form-control border-none" rows="5" placeholder="请输入微沙龙的介绍" style="height: 100px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0;"></textarea>
+    </div>
+      <div class="text-muted font-small" style="margin: 0 0 4.7% 10.9%;">
         提示：发起人手机将被公开给沙龙报名参与者！
       </div>
-      <div class="btn-primary" type="submit" style="margin: 0 90px; height: 60px; width: 460px; letter-spacing: 8px; padding-top: 15px;">发布微沙龙</div>
+      <div class="btn-primary" type="submit" style="margin: 0 14.1%; width: 71.9%; letter-spacing: 1.2%; padding: 1.5%;">发布微沙龙</div>
       <button type="submit" style="display: none;"></button>
     </form>
   </div>
@@ -156,10 +153,10 @@
   <div id="success" class="modal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; height: 50px; position: relative; left: 25px; bottom: 25px">
-        <img src="/img/succ.png" style="margin: 135px 170px 30px; height: 148px; width: 195px;">
-        <p class="text-center" style="margin-top: 10px;">发布成功！</p>
-        <p class="text-center" style="margin-left: 90px; margin-right: 90px;">您可以
+        <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; height: 7.8%; position: relative; left: 3.9%; bottom: 3.9%">
+        <img src="/img/succ.png" style="margin-left: 35%; margin-top: 10%; margin-bottom: 5%">
+        <p class="text-center" style="margin-top: 1.6%;">发布成功！</p>
+        <p class="text-center" style="margin-left: 14.1%; margin-right: 14.1%;">您可以
         <a class="text-primary" href="#">分享给微信好友</a>
         或
         <a class="text-primary" href="#">分享到朋友圈</a>
@@ -169,9 +166,9 @@
   </div>
 
   <!-- uncomment below to show succ -->
-  <script> 
-$('#success').modal(); 
-  </script> 
+  <!--<script> -->
+<!--$('#success').modal(); -->
+<!--<0/script> -->
 
 </div>
 

@@ -6,27 +6,28 @@
 
   <title>首次认证</title>
   <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/base1.css" rel="stylesheet">
+  <link href="/css/base.css" rel="stylesheet">
   <script src="/js/lib/zepto.min.js"></script>
+  <script src="/js/base.js"></script>
   <script src="/js/lib/bootstrap.min.js"></script>
 
   <style>
     input.form-control {
-      padding-left: 4.7%;
-      margin-left: 9.4%;
-      margin-top: 4.7%;
-      width: 81.2%;
+      padding-left: 30px;
+      margin-left: 60px;
+      margin-top: 30px;
+      width: 520px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <form action="" method="post" class="form" role="form">
-      <div style="margin: 7.8% 10.9% 9.4% 7.8%;">
-        <img src="/img/all.png" style="width: 90%; "></img>
+      <div style="margin: 50px 70px 60px 50px;">
+        <img src="/img/all.png" style="height: 150px; width: 505px; "></img>
       </div>
 
-      <p class="form-signin-heading" style="margin-left: 10.9%; margin-bottom: -0.8%; font-weight: bold; ">
+      <p class="form-signin-heading" style="margin-left: 70px; margin-bottom: -5px; font-weight: bold; font-size: 34px;">
         微沙龙认证
       </p>
 
@@ -34,12 +35,12 @@
       <input type="password" name="password" class="form-control" placeholder="Info密码" required></input>
       <input type="text" name="phone" class="form-control" placeholder="手机号" required></input>
 
-      <div class="btn-primary" style="width: 62.5%; margin: 7.0% 18.8% 3.9%; letter-spacing: 1.9%; padding-top: 1.5%; padding-bottom: 1.5% " type="submit">提交</div>
+      <div class="btn-primary" style="width: 400px; height: 70px; margin: 45px 120px 25px; font-size: 28px; letter-spacing: 12px; padding-top: 15px;" type="submit">提交</div>
       <button type="submit" style="display: none"></button>
-      <p class="text-muted text-center" style="margin: 0 10.9% 6.2%; ">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
+      <p class="text-muted text-center" style="margin: 0 70px 40px; font-size: 26px;">微沙龙学术买单系统仅为清华大学在校师生提供服务，请在使用前通过info信息认证。</p>
 
       <div>
-        <img src="/img/tsinghua.png" style="width: 70.3%; margin-left: 15.6%;"></img>
+        <img src="/img/tsinghua.png" style="width: 450px; margin-left: 100px;"></img>
       </div>
     </form>
 
@@ -47,8 +48,8 @@
     <div id="success" class="modal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; height: 7.8%; position: relative; left: 3.9%; bottom: 3.9%">
-          <img src="/img/succ.png" style="width: 34.4%; height: 25.8%; margin: 21.1% 25.0% 5.5% 25.0%;">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; height: 50px; position: relative; left: 25px; bottom: 25px">
+          <img src="/img/succ.png" style="width: 220px; height: 165px; margin: 135px 160px 35px 160px;">
           <p class="text-center" style="">认证成功！</p>
           <p class="text-center">您可以
           <a class="text-primary" href="#">参加沙龙</a>
@@ -63,8 +64,8 @@
     <div id="fail" class="modal" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 7.8%; height: 7.8%; position: relative; left: 3.9%; bottom: 3.9%">
-          <img src="/img/fail.png" style="width: 25.0%; height: 25.0%; margin: 18.8% 29.7% 7.0% 29.7%;">
+          <img src="/img/cancel.png" data-dismiss="modal" class="pull-right close" style="width: 50px; height: 50px; position: relative; left: 25px; bottom: 25px">
+          <img src="/img/fail.png" style="width: 160px; height: 160px; margin: 120px 190px 45px 190px;">
           <p class="text-danger text-center">认证失败！</p>
           <p class="text-muted text-center">
           您需要核对信息后再次提交
@@ -94,7 +95,7 @@
             "password": $.trim($("input[name=password]").val()),
             "phone": $.trim($("input[name=phone]").val()),
           }, function(data) {
-            $("div[type=submit]").html("提交").css("letter-spacing", "1.9%");
+            $("div[type=submit]").html("提交").css("letter-spacing", "12px");
             // TODO: check whether login is success or not
             var success = true;
             if (success) {

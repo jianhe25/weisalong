@@ -1,26 +1,32 @@
-*, .form-control, .input-group-addon, .btn-primary {
+*, .btn-primary {
  font-family: "Microsoft YaHei";
- font-size: 28px;
+ font-size: 20px;
+}
+.font-middle, .form-control, .input-group-addon {
+  font-size:16px;
+}
+
+.font-small {
+  font-size: 12px;
 }
 
 .btn-primary, .btn-default {
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
   cursor: pointer;
 }
 
 .form-control {
-  height: 70px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .input-group-addon {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .input-group {
-  height: 70px;
+  height: 10.9%;
 }
 
 div.container {
@@ -28,7 +34,6 @@ div.container {
   margin-right: auto;
   margin-left: auto;
   background-color: #f3f3f3;
-  width: 640px;
 }
 
 .text-primary, .text-primary:hover, a, a:hover {
@@ -52,14 +57,14 @@ div.container {
 }
 
 .modal-dialog {
-  width: 540px;
+  width: 84.4%;
   position: relative;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 7.8%;
 }
 
 .modal-dialog > div {
-  min-height: 540px;
+  min-height: 84.4%;
 }
 
 textarea {
@@ -81,5 +86,9 @@ textarea {
 
 .close {
   opacity: 1;
+}
+
+.icon {
+  width: 20px;
 }
 
