@@ -35,11 +35,11 @@
 .event-title {
   max-height: 15.6%;
   overflow: hidden;
-  font-size: 20px;
+  font-size: 16px;
 }
 .event-detail {
   color: #B2B2B2;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .num-circle {
@@ -68,7 +68,7 @@ span { display:inline-block; vertical-align:middle }
 
 .modal-row-detail {
   color: #666666;
-  font-size: 16px;
+  font-size: 12px;
   margin-left: 8.3%;
 }
 
@@ -123,7 +123,7 @@ p {
   margin: 0.0%;
 }
 button.btn {
-  font-size: 16px;
+  font-size: 12px;
   border-radius:3px; 
 }
 
@@ -140,6 +140,6 @@ button.btn {
   border-radius: 0.8%;
 }
 
-.people-detail > p {
-  font-size: 16px;
+.people-detail p {
+  font-size: 12px;
 }
