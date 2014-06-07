@@ -2,12 +2,15 @@
  font-family: "Microsoft YaHei";
  font-size: 16px;
 }
+.font-large {
+  font-size:20px;
+}
 .font-middle, .form-control, .input-group-addon {
   font-size:14px;
 }
 
 .font-small {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .btn-primary, .btn-default {
@@ -30,10 +33,11 @@
 }
 
 div.container {
-  padding: 0;
+  padding-bottom: 5%;
   margin-right: auto;
   margin-left: auto;
   background-color: #f3f3f3;
+  min-height: 700px;
 }
 
 .text-primary, .text-primary:hover, a, a:hover {
@@ -89,6 +93,12 @@ textarea {
 }
 
 .icon {
-  width: 24px;
+  width: 18px;
+}
+
+.img-arrow {
+  width: 9.4%; 
+  margin-right: -3%; 
+  margin-top: -1%;
 }
 

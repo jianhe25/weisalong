@@ -108,6 +108,15 @@ Date.prototype.Format = function (fmt) { //author: meizz
     return fmt;
 };
 $(function () {
+    $('#modal-comment > button').click(function() {
+      var length = $('#modal-comment > textarea').val().length;
+      console.log("length = " + length);
+      if (length < 50) {
+        var alert_message = "你已经输入了" + length.toString() + ",还差 " + (50 - length).toString() + "字";
+        alert(alert_message);
+      }
+    });
+
     var qrcodedraw = new QRCodeLib.QRCodeDraw();
     $(".event").click(function () {
         var $e = $(this);
@@ -243,6 +252,7 @@ $(function () {
             }
         }
 
+        $('#modal-comment').removeClass('hidden');
         $('#eventModal').modal({
             keyboard: true
         });
@@ -414,9 +424,8 @@ $(function () {
         </div>
     </div>
     <div class="right-column">
-        <img id="event-circle" src="img/circles_2.png" class="num-circle"/>
-
-        <div id="event-pQuota" class="event-detail text-center" style="font-size:20px">{{ event.pNum-1 }}/{{
+        <img id="event-circle" src="img/circles_2.png" class="num-circle" style="margin-left:15%"/>
+        <div id="event-pQuota" class="event-detail text-center">{{ event.pNum-1 }}/{{
             event.quota }}
         </div>
     </div>
@@ -432,10 +441,10 @@ $(function () {
 </script>
 {% endif %}
 <!-- Demo to trigger modal -->
-<!--
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">
-  Launch SalonSummary modal
-</button> -->
+<!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summaryModal">-->
+<!--Launch SalonSummary modal-->
+<!--</button> -->
+
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="modal-topic"
      aria-hidden="true">
     <div class="modal-dialog">
@@ -461,7 +470,7 @@ $(function () {
                     <img src="img/place.png" class="icon">
                     <span id="modal-venue" class="modal-row-title"> 独峰书院咖啡厅 </span>
                 </div>
-                <p id="modal-venue-detail" class="modal-row-detail"> 清华大学 独峰书院旁（紫日金利文具店楼上）营业时间：10:00 - 21:00</p>
+                <p id="modal-venue-detail" class="modal-row-detail font-middle"> 清华大学 独峰书院旁（紫日金利文具店楼上）营业时间：10:00 - 21:00</p>
             </div>
 
             <div id="modal-starter" class="modal-row">
@@ -495,19 +504,19 @@ $(function () {
             </div>
             <div class="modal-row">
                 <div>
-                    <img src="img/desc.png">
+                    <img src="img/desc.png" class="icon">
                     <span class="modal-row-title">活动简介:</span>
                 </div>
-                <p id="modal-abstract" class="modal-row-detail">
+                <p id="modal-abstract" class="modal-row-detail font-middle">
                     只要你有这样的idea，都可以秀出来！我们会从中选出5个，每个创意可以得到2000元人民币的奖励!
                 </p>
             </div>
 
-            <div id="modal-status" class="modal-row text-center cute-title font-pink" style="font-size: 24px">
+            <div id="modal-status" class="modal-row text-center cute-title font-pink">
                 沙龙已结束！请提交总结:)
             </div>
 
-            <button id="modal-join" type="button" class="btn btn-primary button-single" style="margin-top:20px;">
+            <button id="modal-join" type="button" class="btn btn-primary button-single font-large" style="margin-top:20px;">
                 我要参加
             </button>
 
@@ -531,7 +540,7 @@ $(function () {
             <div id="modal-comment">
                 <textarea class="form-control" rows="5" placeholder="字数不少于140字"
                           style="margin-bottom: 2%;"></textarea>
-                <button type="button" class="btn btn-primary">提交总结</button>
+                <button type="button" class="btn btn-primary font-large" style="width: 100%">提交总结</button>
             </div>
         </div>
     </div>

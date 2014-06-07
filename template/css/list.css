@@ -9,7 +9,7 @@
 .nav-div {
   width: 50%;
   height: 10%;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   background: -webkit-linear-gradient(#FFFFFF, #E0F1F5, #FBFCF9); /* For Safari 5.1 to 6.0 */
   border: solid 2px #E5E5E5;
@@ -39,7 +39,6 @@
 }
 .event-detail {
   color: #B2B2B2;
-  font-size: 12px;
 }
 
 .num-circle {
@@ -68,8 +67,7 @@ span { display:inline-block; vertical-align:middle }
 
 .modal-row-detail {
   color: #666666;
-  font-size: 12px;
-  margin-left: 8.3%;
+  margin-left: 7.5%;
 }
 
 .modal-content {
@@ -123,7 +121,6 @@ p {
   margin: 0.0%;
 }
 button.btn {
-  font-size: 12px;
   border-radius:3px; 
 }
 
@@ -143,3 +140,8 @@ button.btn {
 .people-detail p {
   font-size: 12px;
 }
+
+.text-center {
+  margin: auto;
+}
+
